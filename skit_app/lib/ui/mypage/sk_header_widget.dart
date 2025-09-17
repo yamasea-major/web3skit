@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'SkMyPageHeader.dart';
+import 'sk_my_page_header.dart';
 
 class SkMyPage extends StatefulWidget {
   const SkMyPage({super.key});

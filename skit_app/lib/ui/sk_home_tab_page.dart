@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:skit_app/ui/home/SkInHomePage.dart';
-import 'package:skit_app/ui/reward/SkRewardPage.dart';
-import 'package:skit_app/ui/skit/SkSkitPage.dart';
+import 'package:skit_app/ui/home/sk_in_home_page.dart';
+import 'package:skit_app/ui/reward/sk_reward_page.dart';
+import 'package:skit_app/ui/skit/sk_skit_page.dart';
 
-import 'mypage/SkMyPage.dart';
+import 'mypage/sk_my_page.dart';
 
 class SkHomeTabPage extends StatefulWidget {
   @override

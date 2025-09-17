@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'SkHomeTabPage.dart';
+import 'sk_home_tab_page.dart';
 
 class SkHomePage extends StatelessWidget {
   const SkHomePage({super.key});

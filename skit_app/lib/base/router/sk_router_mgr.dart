@@ -1,4 +1,4 @@
-import 'package:skit_app/frame/SkSysBase.dart';
+import 'package:skit_app/frame/sk_sys_base.dart';
 
 // multi router base class
 

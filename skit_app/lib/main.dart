@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'SkApp.dart';
-import 'ui/SkHomePage.dart';
+import 'sk_app.dart';
+import 'ui/sk_home_page.dart';
 
 void main() async {
   //init all system

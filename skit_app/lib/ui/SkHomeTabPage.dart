@@ -1,4 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:skit_app/ui/home/SkInHomePage.dart';
+import 'package:skit_app/ui/reward/SkRewardPage.dart';
+import 'package:skit_app/ui/skit/SkSkitPage.dart';
+
+import 'mypage/SkMyPage.dart';
 
 class SkHomeTabPage extends StatefulWidget {
   @override
@@ -23,17 +29,73 @@ class _SkHomeTabPageState extends State<SkHomeTabPage> {
         ],
       ),
       tabBuilder: (BuildContext context, int index) {
-        return CupertinoTabView(
-          builder: (BuildContext context) {
-            return CupertinoPageScaffold(
-              navigationBar: CupertinoNavigationBar(
-                middle: Text('Page 1 of tab $index'),
-              ),
-              child: Center(), // 这里有省略一些代码
+        late final CupertinoTabView returnValue;
+        switch (index) {
+          case 0:
+            returnValue = CupertinoTabView(
+              builder: (BuildContext context) {
+                return SkInHomePage();
+                // CustomScrollView(
+                //   slivers: <Widget>[
+                //     CupertinoSliverNavigationBar(
+                //       largeTitle: Text('Chats'),
+                //     ),
+                //   ],
+                // );
+              },
             );
-          },
-        );
+            break;
+          case 1:
+            returnValue = CupertinoTabView(
+              builder: (BuildContext context) {
+                return CupertinoPageScaffold(
+                  navigationBar: CupertinoNavigationBar(
+                    middle: Text('Page 1 of tab $index'),
+                  ),
+                  child: SkSkitPage(),
+                );
+              },
+            );
+            break;
+          case 2:
+            returnValue = CupertinoTabView(
+              builder: (BuildContext context) {
+                return CupertinoPageScaffold(
+                  navigationBar: CupertinoNavigationBar(
+                    middle: Text('Page 1 of tab $index'),
+                  ),
+                  child: SkRewardPage(),
+                );
+              },
+            );
+            break;
+          case 3:
+            returnValue = CupertinoTabView(
+              builder: (BuildContext context) {
+                return CupertinoPageScaffold(
+                  // navigationBar: CupertinoNavigationBar(
+                  //   middle: Text('Page 1 of tab $index'),
+                  // ),
+                  child: SafeArea(
+                    child: SkMyPage(),
+                  ),
+                );
+              },
+            );
+            break;
+        }
+        return returnValue;
       },
     );
   }
 }
+
+// Widget _buildScrollableContent(int index) {
+//   return ListView.builder(
+//     itemCount: 20, // 例如，有20个项目可以滚动。
+//     itemBuilder: (context, i) {
+//       return ListTile(
+//           title: Text('Item $i in Tab $index')); // 显示不同的内容或相同的，取决于你的需求。
+//     },
+//   );
+// }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/widget_video_play.dart';
+
 class SkInHomePage extends StatefulWidget {
   const SkInHomePage({super.key});
 
@@ -13,31 +15,15 @@ class _SkInHomePageState extends State<SkInHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      // center: centerKey,
-      slivers: <Widget>[
-        SliverList(
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              // color: Colors.blue[200 + top[index] % 4 * 100],
-              // height: 100 + top[index] % 4 * 20.0,
-              child: Text('Item1'),
-            );
-          }, childCount: 40),
-        ),
-        SliverList(
-          // key: centerKey,
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              child: Text('Item2'),
-            );
-          }, childCount: 5),
-        ),
-      ],
+    var children = <Widget>[];
+    // 生成 6 个 Tab 页
+    for (int i = 0; i < 6; ++i) {
+      children.add(WidgetVideoPlay());
+    }
+
+    return PageView(
+      scrollDirection: Axis.vertical, // 滑动方向为垂直方向
+      children: children,
     );
   }
 

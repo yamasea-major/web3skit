@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../base/router/sk_router_base.dart';
 import 'package:go_router/go_router.dart';
 
+import '../ui/playing/sk_playing_page.dart';
 import '../ui/search/sk_search_page.dart';
 import '../ui/sk_home_tab_page.dart';
 
@@ -28,6 +29,12 @@ class SkRouterApp extends SkRouterBase {
         path: '/search',
         builder: (BuildContext context, GoRouterState state) {
           return const SkSearchPage();
+        },
+      ),
+      GoRoute(
+        path: '/playing',
+        builder: (BuildContext context, GoRouterState state) {
+          return const SkPlayeringPage();
         },
       ),
     ];

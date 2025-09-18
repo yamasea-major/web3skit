@@ -1,5 +1,5 @@
 name: skit_app
-description: "A new Flutter project."
+description: "web3 skit application."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -37,6 +37,9 @@ dependencies:
   go_router: ^16.1.0
   provider: ^6.1.5+1
   flutter_screenutil: ^5.9.3
+  web3modal_flutter: ^3.3.4
+  flutter_aliplayer: ^7.4.0
+  aliplayer_widget: ^7.3.0
 
 dev_dependencies:
   flutter_test:

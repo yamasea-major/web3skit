@@ -6,7 +6,7 @@ import '../base/router/sk_router_base.dart';
 import 'package:go_router/go_router.dart';
 
 import '../ui/search/sk_search_page.dart';
-import '../ui/sk_home_page.dart';
+import '../ui/sk_home_tab_page.dart';
 
 class SkRouterApp extends SkRouterBase {
   @override
@@ -15,13 +15,13 @@ class SkRouterApp extends SkRouterBase {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
-          return const SkHomePage();
+          return SkHomeTabPage();
         },
       ),
       GoRoute(
         path: '/home',
         builder: (BuildContext context, GoRouterState state) {
-          return const SkHomePage();
+          return SkHomeTabPage();
         },
       ),
       GoRoute(

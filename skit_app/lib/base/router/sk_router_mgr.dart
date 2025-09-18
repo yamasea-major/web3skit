@@ -1,3 +1,4 @@
+import 'package:go_router/go_router.dart';
 import 'package:skit_app/frame/sk_sys_base.dart';
 
 import '../../logic/sk_router_app.dart';
@@ -8,6 +9,8 @@ import '../../logic/sk_router_common.dart';
 class SkRouterMgr extends SkSysBase {
   static List mRouters = [];
 
+  static late GoRouter mGoRouter;
+
   @override
   void init() {
     //
@@ -16,6 +19,9 @@ class SkRouterMgr extends SkSysBase {
     //
     SkRouterCommon skRouterCommon = SkRouterCommon();
     assemble(skRouterCommon.getRouters());
+    //
+    mGoRouter = GoRouter(routes: <RouteBase>[...mRouters]);
+    //
   }
 
   @override

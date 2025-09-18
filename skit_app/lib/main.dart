@@ -5,7 +5,8 @@ import 'ui/sk_home_page.dart';
 
 void main() async {
   //init all system
-  SkApp skApp;
+  SkApp skApp = SkApp();
+  skApp.init();
 
   await ScreenUtil.ensureScreenSize();
 

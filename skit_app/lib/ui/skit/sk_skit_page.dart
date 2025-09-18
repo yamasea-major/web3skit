@@ -11,7 +11,7 @@ class SkSkitPage extends StatefulWidget {
 class _SkSkitPageState extends State<SkSkitPage> {
   @override
   Widget build(BuildContext context) {
-    const Key centerKey = ValueKey<String>('skit_page');
+    // const Key centerKey = ValueKey<String>('skit_page');
     return CustomScrollView(
       // center: centerKey,
       slivers: <Widget>[

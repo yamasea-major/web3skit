@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
+import 'base/router/sk_router_mgr.dart';
 
-
-class SkApp  {
+class SkApp {
+  late SkRouterMgr mRouterMgr;
 
   void init() {
+    // init router
+    mRouterMgr = SkRouterMgr();
+    mRouterMgr.init();
     //
   }
 

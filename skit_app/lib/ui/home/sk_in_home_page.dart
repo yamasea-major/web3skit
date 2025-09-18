@@ -13,9 +13,8 @@ class _SkInHomePageState extends State<SkInHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const Key centerKey = ValueKey<String>('bottom-sliver-list');
     return CustomScrollView(
-      center: centerKey,
+      // center: centerKey,
       slivers: <Widget>[
         SliverList(
           delegate:
@@ -29,16 +28,14 @@ class _SkInHomePageState extends State<SkInHomePage> {
           }, childCount: 40),
         ),
         SliverList(
-          key: centerKey,
+          // key: centerKey,
           delegate:
               SliverChildBuilderDelegate((BuildContext context, int index) {
             return Container(
               alignment: Alignment.center,
-              // color: Colors.blue[200 + bottom[index] % 4 * 100],
-              // height: 100 + bottom[index] % 4 * 20.0,
               child: Text('Item2'),
             );
-          }, childCount: 40),
+          }, childCount: 5),
         ),
       ],
     );

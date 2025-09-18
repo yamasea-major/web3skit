@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../common/widget_search.dart';
 
 class SkSkitPage extends StatefulWidget {
   const SkSkitPage({super.key});
@@ -8,37 +9,47 @@ class SkSkitPage extends StatefulWidget {
 }
 
 class _SkSkitPageState extends State<SkSkitPage> {
-  List<int> top = <int>[];
-  List<int> bottom = <int>[0];
-
   @override
   Widget build(BuildContext context) {
-    const Key centerKey = ValueKey<String>('bottom-sliver-list');
+    const Key centerKey = ValueKey<String>('skit_page');
     return CustomScrollView(
-      center: centerKey,
+      // center: centerKey,
       slivers: <Widget>[
-        SliverList(
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              // color: Colors.blue[200 + top[index] % 4 * 100],
-              // height: 100 + top[index] % 4 * 20.0,
-              child: Text('Item1'),
-            );
-          }, childCount: 40),
+        SliverAppBar(
+            backgroundColor: Colors.blue,
+            expandedHeight: 160.0,
+            pinned: false,
+            stretch: false,
+            flexibleSpace: WidgetSearch()),
+        SliverGrid(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200.0,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0,
+            childAspectRatio: 4.0,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return Container(
+                alignment: Alignment.center,
+                color: Colors.teal[100 * (index % 9)],
+                child: Text('grid item $index'),
+              );
+            },
+            childCount: 20,
+          ),
         ),
-        SliverList(
-          key: centerKey,
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              // color: Colors.blue[200 + bottom[index] % 4 * 100],
-              // height: 100 + bottom[index] % 4 * 20.0,
-              child: Text('Item2'),
-            );
-          }, childCount: 40),
+        SliverFixedExtentList(
+          itemExtent: 50.0,
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return Container(
+                alignment: Alignment.center,
+                color: Colors.lightBlue[100 * (index % 9)],
+                child: Text('list item $index'),
+              );
+            },
+          ),
         ),
       ],
     );

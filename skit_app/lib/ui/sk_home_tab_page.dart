@@ -35,13 +35,6 @@ class _SkHomeTabPageState extends State<SkHomeTabPage> {
             returnValue = CupertinoTabView(
               builder: (BuildContext context) {
                 return SkInHomePage();
-                // CustomScrollView(
-                //   slivers: <Widget>[
-                //     CupertinoSliverNavigationBar(
-                //       largeTitle: Text('Chats'),
-                //     ),
-                //   ],
-                // );
               },
             );
             break;
@@ -49,9 +42,6 @@ class _SkHomeTabPageState extends State<SkHomeTabPage> {
             returnValue = CupertinoTabView(
               builder: (BuildContext context) {
                 return CupertinoPageScaffold(
-                  navigationBar: CupertinoNavigationBar(
-                    middle: Text('Page 1 of tab $index'),
-                  ),
                   child: SkSkitPage(),
                 );
               },

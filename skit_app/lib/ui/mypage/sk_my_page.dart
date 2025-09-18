@@ -16,9 +16,7 @@ class _SkMyPageState extends State<SkMyPage> {
 
   @override
   Widget build(BuildContext context) {
-    const Key centerKey = ValueKey<String>('bottom-sliver-list');
     return CustomScrollView(
-      center: centerKey,
       slivers: <Widget>[
         SliverAppBar(
             pinned: true,
@@ -55,7 +53,6 @@ class _SkMyPageState extends State<SkMyPage> {
           }, childCount: 40),
         ),
         SliverList(
-          key: centerKey,
           delegate:
               SliverChildBuilderDelegate((BuildContext context, int index) {
             return Container(

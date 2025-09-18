@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../sk_ui_def.dart';
+
 class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   final double collapsedHeight;
   final double expandedHeight;
@@ -112,8 +114,8 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: this.makeStickyHeaderTextColor(
-                              shrinkOffset, false), // 标题颜色
+                          // color: this.makeStickyHeaderTextColor(
+                          //     shrinkOffset, false), // 标题颜色
                         ),
                       ),
                     ),
@@ -147,9 +149,9 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: ScreenUtil().setSp(34),
-                    color: this.makeStickyHeaderTitleColor(
-                        shrinkOffset), // Color(0xFFFF542C)),
+                    fontSize: f32,
+                    // color: this.makeStickyHeaderTitleColor(
+                    //     shrinkOffset), // Color(0xFFFF542C)),
                   ),
                 ),
               ))

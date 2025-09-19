@@ -47,7 +47,10 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
           // margin: EdgeInsets.all(10.0),
           child: Text(
             'background with color',
-            style: TextStyle(color: Colors.white, fontSize: f16),
+            style: TextStyle(
+                color: Colors.green,
+                fontSize: f16,
+                decoration: TextDecoration.none),
           ),
         ));
   }
@@ -63,7 +66,11 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
                 //
               },
               icon: Icon(CupertinoIcons.home)),
-          Text('13.6M', style: TextStyle(color: Colors.white, fontSize: f12)),
+          Text('13.6M',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: f12,
+                  decoration: TextDecoration.none)),
           SizedBox(
             height: b12,
           ),
@@ -81,7 +88,11 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
                 //
               },
               icon: Icon(CupertinoIcons.home)),
-          Text('3821', style: TextStyle(color: Colors.white, fontSize: f12)),
+          Text('3821',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: f12,
+                  decoration: TextDecoration.none)),
         ],
       ),
     );
@@ -100,7 +111,10 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
           Row(
             children: [
               Text('sdfdfeexxcdfdfe',
-                  style: TextStyle(color: Colors.white, fontSize: f12)),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: f12,
+                      decoration: TextDecoration.none)),
               IconButton.filled(
                   onPressed: () {
                     //
@@ -125,13 +139,19 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
                           softWrap: false,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Colors.white, fontSize: f12)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: f12,
+                              decoration: TextDecoration.none)),
                     ),
                     SizedBox(
                       width: b12,
                     ),
                     Text('Expand',
-                        style: TextStyle(color: Colors.white, fontSize: f12))
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: f12,
+                            decoration: TextDecoration.none))
                   ],
                 )),
           ),

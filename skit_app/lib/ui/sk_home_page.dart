@@ -9,6 +9,10 @@ class SkHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
+    ScreenUtil.init(
+      context,
+      designSize: Size(750, 1334),
+    );
     //
     return MaterialApp.router(
       routerConfig: SkRouterMgr.mGoRouter,
@@ -32,4 +36,6 @@ class SkHomePage extends StatelessWidget {
       ),
     );
   }
+
+  //!end class
 }

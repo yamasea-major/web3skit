@@ -1,4 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../sk_ui_def.dart';
+
+// search widget
 
 class WidgetSearch extends StatefulWidget {
   const WidgetSearch({super.key});
@@ -13,17 +18,26 @@ class _WidgetSearchState extends State<WidgetSearch> {
 
   @override
   Widget build(BuildContext context) {
-    return SearchBar(
-      hintText: 'Search...',
-      leading: Icon(Icons.search),
-      onChanged: (query) {
-        // Handle text changes, e.g., filter results
-        // print('Search query changed: $query');
-      },
-      onSubmitted: (query) {
-        // Handle search submission
-        // print('Search submitted: $query');
-      },
+    return SizedBox(
+      width: double.infinity,
+      height: 42,
+      child: SearchBar(
+        hintText: 'search tips....',
+        shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(r12))),
+        leading: Icon(
+          CupertinoIcons.search,
+          size: s20,
+        ),
+        onChanged: (query) {
+          // Handle text changes, e.g., filter results
+          // print('Search query changed: $query');
+        },
+        onSubmitted: (query) {
+          // Handle search submission
+          // print('Search submitted: $query');
+        },
+      ),
     );
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../common/widget_search.dart';
+import '../sk_ui_def.dart';
 
 class SkSkitPage extends StatefulWidget {
   const SkSkitPage({super.key});
@@ -9,18 +11,43 @@ class SkSkitPage extends StatefulWidget {
 }
 
 class _SkSkitPageState extends State<SkSkitPage> {
+  //
+  Color aa = Colors.black;
+
+  //
   @override
   Widget build(BuildContext context) {
-    // const Key centerKey = ValueKey<String>('skit_page');
+    //
+    // Color aa = Colors.black;
+    //
     return CustomScrollView(
-      // center: centerKey,
       slivers: <Widget>[
         SliverAppBar(
             backgroundColor: Colors.blue,
-            expandedHeight: 160.0,
-            pinned: false,
-            stretch: false,
-            flexibleSpace: WidgetSearch()),
+            expandedHeight: 100.0,
+            pinned: true,
+            floating: false,
+            snap: false,
+            flexibleSpace: SafeArea(
+              child: Container(
+                // color: aa,
+                height: s36,
+                padding: EdgeInsets.fromLTRB(b12, 0, b12, 0),
+                child: GestureDetector(
+                  onTap: () {
+                    print("aaa");
+                    // setState(() {
+                    //   aa = Colors.red;
+                    // });
+                    GoRouter.of(context).push('/search');
+                    // GoRouter.of(context).push('/rank');
+                  },
+                  child: AbsorbPointer(
+                    child: WidgetSearch(),
+                  ),
+                ),
+              ),
+            )),
         SliverGrid(
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200.0,

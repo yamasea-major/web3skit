@@ -6,6 +6,7 @@ import '../base/router/sk_router_base.dart';
 import 'package:go_router/go_router.dart';
 
 import '../ui/playing/sk_playing_page.dart';
+import '../ui/rankpage/sk_rank_page.dart';
 import '../ui/search/sk_search_page.dart';
 import '../ui/sk_home_tab_page.dart';
 
@@ -37,6 +38,14 @@ class SkRouterApp extends SkRouterBase {
           return const SkPlayeringPage();
         },
       ),
+      GoRoute(
+          path: '/rank',
+          // builder: (BuildContext context, GoRouterState state) {
+          //   return SkRankPage();
+          // },
+          builder: (BuildContext context, GoRouterState state) {
+            return SkRankPage();
+          }),
     ];
   }
 

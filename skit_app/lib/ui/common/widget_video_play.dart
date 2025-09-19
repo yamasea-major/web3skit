@@ -11,20 +11,16 @@ class WidgetVideoPlay extends StatefulWidget {
 }
 
 class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
-  List<int> top = <int>[];
-  List<int> bottom = <int>[0];
+  bool mShowMask = false;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        // video play
         buildVideoWidget(),
-        //
-        // buildControlWidget(),
-        //
-        buildVideoInfoWidget(),
-        //
-        buildSocialInfoWidget(),
+        // video mask
+        buildMask(),
       ],
     );
 
@@ -39,7 +35,7 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
 
   Widget buildVideoWidget() {
     return Container(
-        color: Colors.blue, // 设置背景颜色为蓝色
+        // color: const Color.fromARGB(143, 20, 239, 111), // 设置背景颜色为蓝色
         width: double.infinity,
         height: double.infinity,
         child: Center(
@@ -98,101 +94,13 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
     );
   }
 
-  Widget buildVideoInfoWidget() {
-    String tmpVideoInfo =
-        "Metadata2Go.com is a free online tool that allows you to access the hidden exif &amp; meta data of your files.Just drag & drop or upload an image, document, video, audio or even e-book file. We will show you all metadata hidden inside the file!No matter if image metadata, document information or video exif – we check your file for you";
-    return Positioned(
-      left: 10.0,
-      bottom: 100.0,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Text('sdfdfeexxcdfdfe',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: f12,
-                      decoration: TextDecoration.none)),
-              IconButton.filled(
-                  onPressed: () {
-                    //
-                  },
-                  icon: Icon(CupertinoIcons.home)),
-            ],
-          ),
-          SizedBox(
-            height: b12,
-          ),
-          GestureDetector(
-            onTap: () {
-              //
-            },
-            child: Container(
-                width: 320,
-                // color: Colors.red,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(tmpVideoInfo,
-                          softWrap: false,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: f12,
-                              decoration: TextDecoration.none)),
-                    ),
-                    SizedBox(
-                      width: b12,
-                    ),
-                    Text('Expand',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: f12,
-                            decoration: TextDecoration.none))
-                  ],
-                )),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildSocialInfoWidget() {
-    return Positioned(
-      right: 10.0,
-      bottom: 100.0,
-      child: Column(
-        children: [
-          IconButton.filled(
-              onPressed: () {
-                //
-              },
-              icon: Icon(CupertinoIcons.home)),
-          Text('13.6M', style: TextStyle(color: Colors.white, fontSize: f12)),
-          SizedBox(
-            height: b12,
-          ),
-          IconButton.filled(
-              onPressed: () {
-                //
-              },
-              icon: Icon(CupertinoIcons.home)),
-          Text('85', style: TextStyle(color: Colors.white, fontSize: f12)),
-          SizedBox(
-            height: b12,
-          ),
-          IconButton.filled(
-              onPressed: () {
-                //
-              },
-              icon: Icon(CupertinoIcons.home)),
-          Text('3821', style: TextStyle(color: Colors.white, fontSize: f12)),
-        ],
-      ),
-    );
+  buildMask() {
+    if (mShowMask) {
+      return Container(
+        color: Color.fromARGB(14, 0, 0, 0),
+      );
+    }
+    return SizedBox();
   }
 
   //!end class

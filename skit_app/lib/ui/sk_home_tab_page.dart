@@ -5,8 +5,11 @@ import 'package:skit_app/ui/reward/sk_reward_page.dart';
 import 'package:skit_app/ui/skit/sk_skit_page.dart';
 
 import 'mypage/sk_my_page.dart';
+import 'sk_ui_def.dart';
 
 class SkHomeTabPage extends StatefulWidget {
+  const SkHomeTabPage({super.key});
+
   @override
   _SkHomeTabPageState createState() => _SkHomeTabPageState();
 }
@@ -14,7 +17,9 @@ class SkHomeTabPage extends StatefulWidget {
 class _SkHomeTabPageState extends State<SkHomeTabPage> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
+    // double mStatusBarH = MediaQuery.of(context).padding.top;
+    return Scaffold(
+        body: CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -76,16 +81,8 @@ class _SkHomeTabPageState extends State<SkHomeTabPage> {
         }
         return returnValue;
       },
-    );
+    ));
   }
-}
 
-// Widget _buildScrollableContent(int index) {
-//   return ListView.builder(
-//     itemCount: 20, // 例如，有20个项目可以滚动。
-//     itemBuilder: (context, i) {
-//       return ListTile(
-//           title: Text('Item $i in Tab $index')); // 显示不同的内容或相同的，取决于你的需求。
-//     },
-//   );
-// }
+  //!end class
+}

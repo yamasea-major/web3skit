@@ -6,6 +6,7 @@ const double f32 = 32.0;
 //border
 const double b8 = 8.0;
 const double b12 = 12.0;
+const double b24 = 24.0;
 
 //radius
 const double r12 = 12.0;

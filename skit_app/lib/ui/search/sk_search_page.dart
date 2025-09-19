@@ -27,20 +27,16 @@ class _SkSearchPageState extends State<SkSearchPage> {
             pinned: true,
             floating: false,
             snap: false,
-            leading: GestureDetector(
-              onTap: () {
-                GoRouter.of(context).pop();
-              },
-              child: Icon(
-                CupertinoIcons.back,
-                size: s32,
-              ),
-              // Padding(
-              //     padding: EdgeInsets.only(top: 2,left: 10),
-              //     child: Icon(
-              //       CupertinoIcons.back,
-              //       size: s32,
-              //     )),
+            leading: Padding(
+              padding: EdgeInsets.only(bottom: 4.0), // 在默认的leading旁边添加空间
+              child: IconButton(
+                  icon: Icon(
+                    CupertinoIcons.back,
+                    size: s32,
+                  ),
+                  onPressed: () {
+                    GoRouter.of(context).pop();
+                  }), // leading小部件
             ),
             actions: <Widget>[
               TextButton(

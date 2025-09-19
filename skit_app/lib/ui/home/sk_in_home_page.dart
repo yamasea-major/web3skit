@@ -30,31 +30,29 @@ class _SkInHomePageState extends State<SkInHomePage> {
     }
 
     return SizedBox(
-        // color: Colors.blue,
-        // width: 375,
-        // height: 300,
         child: Stack(
-          children: [
-            Positioned(
-                child: PageView(
-              scrollDirection: Axis.vertical, // 滑动方向为垂直方向
-              children: children,
-            )),
-            Positioned(
-              right: b24,
-              top: mStatusBarH + b12,
-              child: GestureDetector(
-                  onTap: () {
-                    //
-                    GoRouter.of(context).push('/search');
-                  },
-                  child: Icon(
-                    CupertinoIcons.search,
-                    size: s24,
-                  )),
-            ),
-          ],
-        ));
+      children: [
+        Positioned(
+            child: PageView(
+          scrollDirection: Axis.vertical, // 滑动方向为垂直方向
+          children: children,
+        )),
+        Positioned(
+          right: b24,
+          top: mStatusBarH + b12,
+          child: GestureDetector(
+              onTap: () {
+                //
+                GoRouter.of(context).push('/search');
+              },
+              child: Icon(
+                CupertinoIcons.search,
+                size: s24,
+              )),
+        ),
+      ],
+    ));
+    //
   }
 
   Widget buildHomePlay() {
@@ -66,27 +64,46 @@ class _SkInHomePageState extends State<SkInHomePage> {
             Positioned(right: 10.0, bottom: 140.0, child: WidgetSocialInfo()),
             Positioned(left: 10.0, bottom: 140.0, child: WidgetVideoInfo()),
             Positioned(
-              left: 10.0,
-              bottom: 90.0,
+              left: 0.0,
+              bottom: 80.0,
               child: GestureDetector(
                 onTap: () {
                   //
+                  GoRouter.of(context).push('/playing');
                 },
                 child: Container(
-                  width: 375,
-                  height: 40,
-                  color: const Color.fromARGB(97, 251, 250, 250),
+                  width: MediaQuery.of(context).size.width,
+                  height: 46,
+                  color: const Color.fromARGB(60, 0, 0, 0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("abc",
+                      SizedBox(
+                        width: b12,
+                      ),
+                      Icon(
+                        CupertinoIcons.arrowtriangle_right_circle,
+                        color: Colors.white,
+                        size: s24,
+                      ),
+                      SizedBox(
+                        width: b4,
+                      ),
+                      Text("VIEW FULL CONTENT",
                           style: TextStyle(
-                            fontSize: f32,
-                            // color: this.makeStickyHeaderTitleColor(
-                            //     shrinkOffset), // Color(0xFFFF542C)),
-                          )),
-                      Text("left"),
+                              fontSize: f14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                      Expanded(child: SizedBox()),
+                      Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.white,
+                        size: s24,
+                      ),
+                      SizedBox(
+                        width: b12,
+                      ),
                     ],
                   ),
                 ),

@@ -35,12 +35,8 @@ class _SkSkitPageState extends State<SkSkitPage> {
                 padding: EdgeInsets.fromLTRB(b12, 0, b12, 0),
                 child: GestureDetector(
                   onTap: () {
-                    print("aaa");
-                    // setState(() {
-                    //   aa = Colors.red;
-                    // });
+                    print("search");
                     GoRouter.of(context).push('/search');
-                    // GoRouter.of(context).push('/rank');
                   },
                   child: AbsorbPointer(
                     child: WidgetSearch(),

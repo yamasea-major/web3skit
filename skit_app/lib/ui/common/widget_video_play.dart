@@ -34,13 +34,11 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
   }
 
   Widget buildVideoWidget() {
-    return Container(
+    return SizedBox(
         // color: const Color.fromARGB(143, 20, 239, 111), // 设置背景颜色为蓝色
         width: double.infinity,
         height: double.infinity,
         child: Center(
-          // padding: EdgeInsets.all(10.0),
-          // margin: EdgeInsets.all(10.0),
           child: Text(
             'background with color',
             style: TextStyle(

@@ -17,15 +17,17 @@ class SkPlayeringPage extends StatefulWidget {
 class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   double mStatusBarH = 0.0;
 
+  final double mBottomH = 80;
+
+  var children = <Widget>[];
+
   @override
   Widget build(BuildContext context) {
     //
     mStatusBarH = MediaQuery.of(context).padding.top;
-    //
-    var children = <Widget>[];
     // 生成 6 个 Tab 页
     for (int i = 0; i < 6; ++i) {
-      children.add(buildHomePlay());
+      children.add(buildPlayInner());
     }
     //
     return Scaffold(
@@ -34,11 +36,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
       // height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
-          Positioned(
-              child: PageView(
-            scrollDirection: Axis.vertical, // 滑动方向为垂直方向
-            children: children,
-          )),
+          buildPlayBody(),
           buildTopTools(),
         ],
       ),
@@ -46,8 +44,38 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
     ));
   }
 
-  Widget buildHomePlay() {
+  Widget buildPlayBody() {
+    return Positioned(
+      top: 0,
+      left: 0,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height - 200,
+        color: Colors.amber,
+        child: PageView(
+          scrollDirection: Axis.vertical, // 滑动方向为垂直方向
+          children: children,
+        ),
+      ),
+    );
+  }
+
+  Widget buildPlayInner() {
     return WidgetVideoPlay();
+    //     Container(
+    //   width: 200, //MediaQuery.of(context).size.width,
+    //   height: 400, //MediaQuery.of(context).size.height -mBottomH,
+    //   color: Colors.blueGrey,
+    //   // child: WidgetVideoPlay(),
+    //   // Container(
+    //   //   // width: MediaQuery.of(context).size.width,
+    //   //   // height: MediaQuery.of(context).size.height - mBottomH,
+    //   //   color: Colors.amber,
+    //   //   child: WidgetVideoPlay(),
+    //   // ),
+    //   // // Expanded(child: WidgetVideoPlay()),
+    //   // buildBottom(),
+    // );
   }
 
   Widget buildTopTools() {
@@ -127,11 +155,14 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   }
 
   Widget buildBottom() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 30,
-      color: Colors.amber,
-    );
+    return Positioned(
+        bottom: 0,
+        left: 0,
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: mBottomH,
+          color: Colors.black,
+        ));
   }
 
   //!end class

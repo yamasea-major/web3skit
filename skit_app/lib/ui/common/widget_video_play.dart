@@ -15,14 +15,16 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // video play
-        buildVideoWidget(),
-        // video mask
-        buildMask(),
-      ],
-    );
+    return Container(
+        // constraints: BoxConstraints.expand(),
+        child: Stack(
+          children: [
+            // video play
+            buildVideoWidget(),
+            // video mask
+            buildMask(),
+          ],
+        ));
 
     // @override
     // void dispose() {

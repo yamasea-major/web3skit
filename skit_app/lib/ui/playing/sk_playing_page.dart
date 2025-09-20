@@ -17,7 +17,7 @@ class SkPlayeringPage extends StatefulWidget {
 class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   double mStatusBarH = 0.0;
 
-  final double mBottomH = 80;
+  final double mBottomH = 88;
 
   var children = <Widget>[];
 
@@ -31,8 +31,9 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
     }
     //
     return Scaffold(
-        body: Container(
-      width: MediaQuery.of(context).size.width,
+        body: ConstrainedBox(
+      constraints: BoxConstraints.expand(),
+      // width: MediaQuery.of(context).size.width,
       // height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
@@ -45,9 +46,8 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   }
 
   Widget buildPlayBody() {
-    return Positioned(
+    return Positioned.fill(
       top: 0,
-      left: 0,
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height - 200,
@@ -61,21 +61,10 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   }
 
   Widget buildPlayInner() {
-    return WidgetVideoPlay();
-    //     Container(
-    //   width: 200, //MediaQuery.of(context).size.width,
-    //   height: 400, //MediaQuery.of(context).size.height -mBottomH,
-    //   color: Colors.blueGrey,
-    //   // child: WidgetVideoPlay(),
-    //   // Container(
-    //   //   // width: MediaQuery.of(context).size.width,
-    //   //   // height: MediaQuery.of(context).size.height - mBottomH,
-    //   //   color: Colors.amber,
-    //   //   child: WidgetVideoPlay(),
-    //   // ),
-    //   // // Expanded(child: WidgetVideoPlay()),
-    //   // buildBottom(),
-    // );
+    return Stack(children: [
+      Positioned.fill(bottom: mBottomH, child: WidgetVideoPlay()),
+      buildBottom(),
+    ]);
   }
 
   Widget buildTopTools() {
@@ -94,23 +83,28 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                 width: b12,
               ),
               GestureDetector(
-                  onTap: () {
-                    //
-                    GoRouter.of(context).pop();
-                  },
-                  child: Icon(
-                    color: Colors.white,
-                    CupertinoIcons.back,
-                    size: s24,
-                  )),
-              SizedBox(
-                width: b4,
-              ),
-              Text("第24集",
-                  style: TextStyle(
-                      fontSize: f14,
+                onTap: () {
+                  //
+                  GoRouter.of(context).pop();
+                },
+                child: Row(
+                  children: [
+                    Icon(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold)),
+                      CupertinoIcons.back,
+                      size: s24,
+                    ),
+                    SizedBox(
+                      width: b4,
+                    ),
+                    Text("第24集",
+                        style: TextStyle(
+                            fontSize: f14,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold)),
+                  ],
+                ),
+              ),
               Expanded(child: SizedBox()),
               GestureDetector(
                 onTap: () {
@@ -123,7 +117,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Icon(
-                      CupertinoIcons.speedometer,
+                      CupertinoIcons.escape, //speedometer,
                       color: Colors.white,
                       size: s24,
                     ),
@@ -142,7 +136,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                 width: b12,
               ),
               Icon(
-                CupertinoIcons.bars,
+                CupertinoIcons.ellipsis_vertical,
                 color: Colors.white,
                 size: s24,
               ),
@@ -162,6 +156,55 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
           width: MediaQuery.of(context).size.width,
           height: mBottomH,
           color: Colors.black,
+          child: Padding(
+              padding: EdgeInsets.only(left: b20, right: b20, top: b12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                        onTap: () {
+                          //
+                          print('show all videos');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 57, 57, 57),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(6))),
+                          height: 46,
+                          child: Row(
+                            children: [
+                              SizedBox(width: b12),
+                              Text("选集·全80集·免费观看",
+                                  style: TextStyle(
+                                      fontSize: f14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold)),
+                              Expanded(child: SizedBox()),
+                              Icon(
+                                CupertinoIcons.projective,
+                                color: Colors.white,
+                                size: s20,
+                              ),
+                              SizedBox(width: b12),
+                            ],
+                          ),
+                        )),
+                  ),
+                  SizedBox(width: b12),
+                  IconButton(
+                      onPressed: () {
+                        //
+                      },
+                      icon: Icon(
+                        CupertinoIcons.fullscreen,
+                        color: Colors.white,
+                        size: s24,
+                      ))
+                ],
+              )),
         ));
   }
 

@@ -8,6 +8,8 @@ const double f32 = 32.0;
 const double b4 = 4.0;
 const double b8 = 8.0;
 const double b12 = 12.0;
+const double b16 = 16.0;
+const double b20 = 20.0;
 const double b24 = 24.0;
 
 //radius

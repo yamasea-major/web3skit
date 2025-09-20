@@ -10,19 +10,56 @@ class WidgetVideoPlay extends StatefulWidget {
   State<WidgetVideoPlay> createState() => _WidgetVideoPlayState();
 }
 
-class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
+class _WidgetVideoPlayState extends State<WidgetVideoPlay>
+    with SingleTickerProviderStateMixin {
   bool mShowMask = false;
+  //
+  late Animation<double> animation;
+  late AnimationController animationController;
+  late CurvedAnimation curve;
+
+  @override
+  void initState() {
+    super.initState();
+
+    animationController = AnimationController(
+      duration: Duration(milliseconds: 300),
+      vsync: this,
+    );
+
+    curve =
+        CurvedAnimation(parent: animationController, curve: Curves.bounceInOut);
+    animation = Tween(
+      begin: 1.0,
+      end: 0.3,
+    ).animate(curve);
+  }
 
   @override
   Widget build(BuildContext context) {
+    //
+    int a = 0;
+    //
     return Container(
         // constraints: BoxConstraints.expand(),
+        color: Colors.black,
         child: Stack(
           children: [
             // video play
             buildVideoWidget(),
             // video mask
             buildMask(),
+            // test btn
+            Positioned(
+              top: 100,
+              left: 100,
+              child: TextButton(
+                child: Text("放大"),
+                onPressed: () {
+                  animationController?.forward();
+                },
+              ),
+            ),
           ],
         ));
 
@@ -36,62 +73,31 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay> {
   }
 
   Widget buildVideoWidget() {
-    return SizedBox(
-        // color: const Color.fromARGB(143, 20, 239, 111), // 设置背景颜色为蓝色
-        width: double.infinity,
-        height: double.infinity,
-        child: Center(
-          child: Text(
-            'background with color',
-            style: TextStyle(
-                color: Colors.green,
-                fontSize: f16,
-                decoration: TextDecoration.none),
-          ),
-        ));
+    return ScaleTransition(
+        scale: animation,
+        alignment: Alignment.center,
+        child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: Colors.amber,
+            child: Center(
+              child: Text(
+                'background with color',
+                style: TextStyle(
+                    color: Colors.green,
+                    fontSize: f16,
+                    decoration: TextDecoration.none),
+              ),
+            )));
   }
 
   Widget buildControlWidget() {
-    return Positioned(
-      right: 10.0,
-      bottom: 100.0,
-      child: Column(
-        children: [
-          IconButton.filled(
-              onPressed: () {
-                //
-              },
-              icon: Icon(CupertinoIcons.home)),
-          Text('13.6M',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: f12,
-                  decoration: TextDecoration.none)),
-          SizedBox(
-            height: b12,
-          ),
-          IconButton.filled(
-              onPressed: () {
-                //
-              },
-              icon: Icon(CupertinoIcons.home)),
-          Text('85', style: TextStyle(color: Colors.white, fontSize: f12)),
-          SizedBox(
-            height: b12,
-          ),
-          IconButton.filled(
-              onPressed: () {
-                //
-              },
-              icon: Icon(CupertinoIcons.home)),
-          Text('3821',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: f12,
-                  decoration: TextDecoration.none)),
-        ],
-      ),
-    );
+    if (mShowMask) {
+      return Container(
+        color: Color.fromARGB(14, 0, 0, 0),
+      );
+    }
+    return SizedBox();
   }
 
   buildMask() {

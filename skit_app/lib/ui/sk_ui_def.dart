@@ -2,6 +2,8 @@
 const double f12 = 12.0;
 const double f14 = 14.0;
 const double f16 = 16.0;
+const double f18 = 18.0;
+const double f20 = 20.0;
 const double f32 = 32.0;
 
 //border

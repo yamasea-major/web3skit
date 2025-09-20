@@ -26,16 +26,21 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
       children: [
         Row(
           children: [
-            Text('sdfdfeexxcdfdfe',
+            Text('花轿临门拒嫁，只盼故人归',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: f12,
+                    fontSize: f16,
+                    fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none)),
-            IconButton.filled(
+            IconButton(
                 onPressed: () {
                   //
                 },
-                icon: Icon(CupertinoIcons.home)),
+                icon: Icon(
+                  CupertinoIcons.right_chevron,
+                  color: Colors.white,
+                  size: s16,
+                )),
           ],
         ),
         SizedBox(
@@ -45,10 +50,9 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
           onTap: () {
             //
             print("expand");
-
-            setState(() {
-              // mInfoExpand = !mInfoExpand;
-            });
+            // setState(() {
+            //   mInfoExpand = !mInfoExpand;
+            // });
           },
           child: Container(
               width: 320,
@@ -62,16 +66,18 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: f12,
+                            fontSize: f14,
+                            fontWeight: FontWeight.w400,
                             decoration: TextDecoration.none)),
                   ),
                   SizedBox(
                     width: b12,
                   ),
-                  Text('Expand',
+                  Text('展开',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: f12,
+                          fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none))
                 ],
               )),

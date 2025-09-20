@@ -47,6 +47,7 @@ class _SkInHomePageState extends State<SkInHomePage> {
               },
               child: Icon(
                 CupertinoIcons.search,
+                color: Colors.white,
                 size: s24,
               )),
         ),

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../common/widget_social_info.dart';
+import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
 import '../sk_ui_def.dart';
 
@@ -21,6 +23,8 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
 
   var children = <Widget>[];
 
+  bool mShowInfo = true;
+
   @override
   Widget build(BuildContext context) {
     //
@@ -39,6 +43,8 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
         children: [
           buildPlayBody(),
           buildTopTools(),
+          buildSocialInfo(),
+          buildVideoInfo(),
         ],
       ),
       // buildBottom(),
@@ -197,6 +203,9 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                   IconButton(
                       onPressed: () {
                         //
+                        setState(() {
+                          mShowInfo = !mShowInfo;
+                        });
                       },
                       icon: Icon(
                         CupertinoIcons.fullscreen,
@@ -206,6 +215,22 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                 ],
               )),
         ));
+  }
+
+  Widget buildSocialInfo() {
+    if (mShowInfo) {
+      return Positioned(
+          right: 10.0, bottom: mBottomH + b20, child: WidgetSocialInfo());
+    }
+    return SizedBox();
+  }
+
+  Widget buildVideoInfo() {
+    if (mShowInfo) {
+      return Positioned(
+          left: 10.0, bottom: mBottomH + b20, child: WidgetVideoInfo());
+    }
+    return SizedBox();
   }
 
   //!end class

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../sk_ui_def.dart';
 
@@ -53,6 +54,14 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
         IconButton(
             onPressed: () {
               //
+              Fluttertoast.showToast(
+                  msg: "This is Center Short Toast",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
             },
             icon: Icon(CupertinoIcons.chat_bubble_text_fill,
                 size: s32, color: Colors.white)),

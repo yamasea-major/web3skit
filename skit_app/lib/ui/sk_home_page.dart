@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../base/router/sk_router_mgr.dart';
 import 'sk_ui_def.dart';
 
@@ -34,6 +35,7 @@ class SkHomePage extends StatelessWidget {
           // displaySmall: GoogleFonts.pacifico(),
         ),
       ),
+      builder: FToastBuilder(),
     );
   }
 

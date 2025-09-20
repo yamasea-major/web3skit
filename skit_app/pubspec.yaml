@@ -40,6 +40,7 @@ dependencies:
   web3modal_flutter: ^3.3.4
   flutter_aliplayer: ^7.4.0
   aliplayer_widget: ^7.3.0
+  fluttertoast: ^8.2.8
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 
-Future<int?> showCustomModalBottomSheet(context, List<String> options) async {
+import '../sk_ui_def.dart';
+
+Future<int?> showCustomModalBottomSheet(context) async {
+  //
+  List<String> mSpeedItem = [
+    '3.0x',
+    '2.0x',
+    '1.5x',
+    '1.25x',
+    '1.0x(default)',
+    '0.75x'
+  ];
+  //
   return showModalBottomSheet<int>(
     backgroundColor: Colors.transparent,
     isScrollControlled: true,
@@ -24,9 +36,9 @@ Future<int?> showCustomModalBottomSheet(context, List<String> options) async {
               children: [
                 Center(
                   child: Text(
-                    '底部弹窗',
+                    '倍速',
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: f16),
                   ),
                 ),
                 IconButton(
@@ -37,17 +49,17 @@ Future<int?> showCustomModalBottomSheet(context, List<String> options) async {
               ],
             ),
           ),
-          Divider(height: 1.0),
+          // Divider(height: 1.0),
           Expanded(
             child: ListView.builder(
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                    title: Text(options[index]),
+                    title: Text(mSpeedItem[index]),
                     onTap: () {
                       Navigator.of(context).pop(index);
                     });
               },
-              itemCount: options.length,
+              itemCount: mSpeedItem.length,
             ),
           ),
         ]),

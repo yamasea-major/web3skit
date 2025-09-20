@@ -118,9 +118,8 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                   //
                   print('speed');
                   // GoRouter.of(context).pop();
-                  List<String> aa = ["1", "2", "3"];
                   int? selectedIndex =
-                      await showCustomModalBottomSheet(context, aa);
+                      await showCustomModalBottomSheet(context);
                   print("自定义底部弹层：选中了第$selectedIndex个选项");
                 },
                 child: Row(

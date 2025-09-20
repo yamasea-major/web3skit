@@ -54,9 +54,19 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
               top: 100,
               left: 100,
               child: TextButton(
-                child: Text("放大"),
+                child: Text("缩小"),
                 onPressed: () {
                   animationController?.forward();
+                },
+              ),
+            ),
+            Positioned(
+              top: 100,
+              left: 200,
+              child: TextButton(
+                child: Text("返回"),
+                onPressed: () {
+                  animationController?.reverse();
                 },
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../common/widget_function_bar.dart';
+import '../common/widget_unlogin.dart';
 import '../common/widget_user_info.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
@@ -57,7 +58,7 @@ class _SkMyPageState extends State<SkMyPage> {
                               color: const Color.fromARGB(255, 10, 228, 79)),
                           Positioned(
                               top: SkCommonDef.mStatusBarH + mToolsBarH,
-                              child: WidgetUserInfo()),
+                              child: buildHeadWidget(context)),
                           Positioned(
                               top: SkCommonDef.mStatusBarH + mToolsBarH + 80,
                               child: WidgetFunctionBar()),
@@ -102,6 +103,11 @@ class _SkMyPageState extends State<SkMyPage> {
         ],
       ),
     );
+  }
+
+  Widget buildHeadWidget(BuildContext context) {
+    if (mIsLogin == false) return WidgetUnlogin();
+    return WidgetUserInfo();
   }
 
   Widget buildHeaderTools(BuildContext context) {

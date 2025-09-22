@@ -19,6 +19,8 @@ class _SkMyPageState extends State<SkMyPage> {
   List<String> mTabs = ['历史', '收藏', '点赞', '动态'];
   final double mToolsBarH = 20;
   double mHeadBgH = 0;
+  //
+  bool mIsLogin = false;
 
   @override
   Widget build(BuildContext context) {

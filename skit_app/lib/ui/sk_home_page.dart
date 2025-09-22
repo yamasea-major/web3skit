@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../base/router/sk_router_mgr.dart';
+import 'sk_ui_common_def.dart';
 import 'sk_ui_def.dart';
 
 class SkHomePage extends StatelessWidget {
@@ -9,6 +10,8 @@ class SkHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //
+    SkCommonDef.mStatusBarH = MediaQuery.of(context).padding.top;
     //
     ScreenUtil.init(
       context,

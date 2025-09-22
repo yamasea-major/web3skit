@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
+import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
 
 class SkInHomePage extends StatefulWidget {
@@ -20,8 +21,6 @@ class _SkInHomePageState extends State<SkInHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //
-    double mStatusBarH = MediaQuery.of(context).padding.top;
     //
     var children = <Widget>[];
     // 生成 6 个 Tab 页
@@ -39,7 +38,7 @@ class _SkInHomePageState extends State<SkInHomePage> {
         )),
         Positioned(
           right: b24,
-          top: mStatusBarH + b12,
+          top: SkCommonDef.mStatusBarH + b12,
           child: GestureDetector(
               onTap: () {
                 //

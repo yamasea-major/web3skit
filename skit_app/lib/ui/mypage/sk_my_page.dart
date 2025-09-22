@@ -1,9 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skit_app/ui/common/widget_function_bar.dart';
-
 import '../common/widget_user_info.dart';
-import 'sk_my_page_header.dart';
+import '../sk_ui_common_def.dart';
+import '../sk_ui_def.dart';
 
 class SkMyPage extends StatefulWidget {
   const SkMyPage({super.key});
@@ -16,59 +15,89 @@ class _SkMyPageState extends State<SkMyPage> {
   List<int> top = <int>[];
   List<int> bottom = <int>[0];
   List<String> mTabs = ['历史', '收藏', '点赞', '动态'];
+  final double mToolsBarH = 20;
+  final double mHeadBgH = 140;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            pinned: true,
-            floating: true,
-            snap: false,
-            // collapsedHeight: 80,
-            expandedHeight: 160.0,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                color: Colors.blueGrey,
-                child: WidgetUserInfo(),
+      child: Stack(
+        children: [
+          CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                pinned: true,
+                floating: true,
+                snap: false,
+                collapsedHeight: SkCommonDef.mStatusBarH + mToolsBarH + s12,
+                expandedHeight: SkCommonDef.mStatusBarH + mToolsBarH + mHeadBgH,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Container(
+                    color: Colors.blueGrey,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: SkCommonDef.mStatusBarH + mToolsBarH),
+                      child: WidgetUserInfo(),
+                    ),
+                  ),
+                ),
+                bottom: PreferredSize(
+                    preferredSize: const Size.fromHeight(60),
+                    child: TabBar(
+                        tabs: mTabs
+                            .map((String name) => Tab(text: name))
+                            .toList())),
               ),
-            ),
-            bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(60),
-                child: TabBar(
-                    tabs:
-                        mTabs.map((String name) => Tab(text: name)).toList())),
-            // Stack(
-            //   children: [
-            //     Positioned(left: 0, top: 0, child: WidgetUserInfo()),
-            //     // Positioned(left: 0, bottom: 0, child: WidgetFunctionBar()),
-            //   ],
-            // ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                  return Container(
+                    alignment: Alignment.center,
+                    // color: Colors.blue[200 + top[index] % 4 * 100],
+                    // height: 100 + top[index] % 4 * 20.0,
+                    child: Text('Item1'),
+                  );
+                }, childCount: 40),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                  return Container(
+                    alignment: Alignment.center,
+                    // color: Colors.blue[200 + bottom[index] % 4 * 100],
+                    // height: 100 + bottom[index] % 4 * 20.0,
+                    child: Text('Item2'),
+                  );
+                }, childCount: 40),
+              ),
+            ],
           ),
-          SliverList(
-            delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
-              return Container(
-                alignment: Alignment.center,
-                // color: Colors.blue[200 + top[index] % 4 * 100],
-                // height: 100 + top[index] % 4 * 20.0,
-                child: Text('Item1'),
-              );
-            }, childCount: 40),
-          ),
-          SliverList(
-            delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
-              return Container(
-                alignment: Alignment.center,
-                // color: Colors.blue[200 + bottom[index] % 4 * 100],
-                // height: 100 + bottom[index] % 4 * 20.0,
-                child: Text('Item2'),
-              );
-            }, childCount: 40),
-          ),
+          Positioned(
+              top: SkCommonDef.mStatusBarH,
+              right: 0,
+              child: buildHeaderTools()),
+        ],
+      ),
+    );
+  }
+
+  Widget buildHeaderTools() {
+    return Container(
+      // width: 100,
+      // height: 100,
+      color: Colors.red,
+      child: Row(
+        children: [
+          IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Icon(
+                CupertinoIcons.gear,
+                color: Colors.white,
+                size: s16,
+              )),
         ],
       ),
     );

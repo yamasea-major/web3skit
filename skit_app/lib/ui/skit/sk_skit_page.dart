@@ -61,7 +61,7 @@ class _SkSkitPageState extends State<SkSkitPage> {
                 child: WidgetSkitCard(),
               );
             },
-            childCount: 18,
+            childCount: 9,
           ),
         ),
         SliverFixedExtentList(

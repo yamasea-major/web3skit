@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
 
 // userinfo widget
@@ -23,19 +23,164 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black12,
-        child: Stack(
-      children: [
-        Positioned(
-            left: 0,
-            top: 0,
-            child: Container(
-              color: Colors.red,
-              width: 64,
-              height: 64,
-            ))
-      ],
-    ));
+        color: const Color.fromARGB(104, 65, 11, 202),
+        width: SkCommonDef.mScreenW,
+        height: 80,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Gems')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Bill')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Msg')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Member')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Wallet')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Wallet1')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Wallet2')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Wallet3')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Wallet4')
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  SizedBox(
+                    height: b8,
+                  ),
+                  Text('Wallet5')
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 
   //!end class

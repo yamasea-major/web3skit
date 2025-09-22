@@ -12,6 +12,8 @@ class SkHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     SkCommonDef.mStatusBarH = MediaQuery.of(context).padding.top;
+     SkCommonDef.mScreenW = MediaQuery.of(context).size.width;
+     SkCommonDef.mScreenH = MediaQuery.of(context).size.height;
     //
     ScreenUtil.init(
       context,

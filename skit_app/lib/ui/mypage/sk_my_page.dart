@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../common/widget_function_bar.dart';
 import '../common/widget_user_info.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
@@ -17,10 +18,18 @@ class _SkMyPageState extends State<SkMyPage> {
   List<int> bottom = <int>[0];
   List<String> mTabs = ['历史', '收藏', '点赞', '动态'];
   final double mToolsBarH = 20;
-  final double mHeadBgH = 140;
+  double mHeadBgH = 0;
 
   @override
   Widget build(BuildContext context) {
+    //
+    // 100 info height
+    // 80 function height
+    // 20 bottom distance
+    //
+
+    mHeadBgH = SkCommonDef.mStatusBarH + mToolsBarH + 100 + 80 + 20;
+    //
     return DefaultTabController(
       length: 4,
       child: Stack(
@@ -32,16 +41,26 @@ class _SkMyPageState extends State<SkMyPage> {
                 floating: true,
                 snap: false,
                 collapsedHeight: SkCommonDef.mStatusBarH + mToolsBarH + s12,
-                expandedHeight: SkCommonDef.mStatusBarH + mToolsBarH + mHeadBgH,
+                expandedHeight: mHeadBgH,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Container(
-                    color: Colors.blueGrey,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          top: SkCommonDef.mStatusBarH + mToolsBarH),
-                      child: WidgetUserInfo(),
-                    ),
-                  ),
+                      color: Colors.blueGrey,
+                      width: SkCommonDef.mScreenW,
+                      height: mHeadBgH,
+                      child: Stack(
+                        children: [
+                          Container(
+                              width: SkCommonDef.mScreenW,
+                              height: mHeadBgH,
+                              color: const Color.fromARGB(255, 10, 228, 79)),
+                          Positioned(
+                              top: SkCommonDef.mStatusBarH + mToolsBarH,
+                              child: WidgetUserInfo()),
+                          Positioned(
+                              top: SkCommonDef.mStatusBarH + mToolsBarH + 80,
+                              child: WidgetFunctionBar()),
+                        ],
+                      )),
                 ),
                 bottom: PreferredSize(
                     preferredSize: const Size.fromHeight(60),

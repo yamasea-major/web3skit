@@ -6,6 +6,7 @@ import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
 import '../dialog/bottomsheet_setting.dart';
+import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
 
 // playingpage
@@ -18,7 +19,7 @@ class SkPlayeringPage extends StatefulWidget {
 }
 
 class _SkSkPlayeringeState extends State<SkPlayeringPage> {
-  double mStatusBarH = 0.0;
+
 
   final double mBottomH = 88;
 
@@ -28,8 +29,6 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
 
   @override
   Widget build(BuildContext context) {
-    //
-    mStatusBarH = MediaQuery.of(context).padding.top;
     // 生成 6 个 Tab 页
     for (int i = 0; i < 6; ++i) {
       children.add(buildPlayInner());
@@ -77,7 +76,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   Widget buildTopTools() {
     return Positioned(
       left: 0,
-      top: mStatusBarH + b12,
+      top:  SkCommonDef.mStatusBarH + b12,
       child: Container(
           width: MediaQuery.of(context).size.width,
           height: 46,

@@ -46,7 +46,7 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
             buildItemFunction(
                 context, 'Cache', CupertinoIcons.cloud_download, '/rank'),
             buildItemFunction(
-                context, 'Service', CupertinoIcons.question_circle, '/rank'),
+                context, 'Service', CupertinoIcons.smiley, '/rank'),
             buildItemFunction(
                 context, 'Feedback', CupertinoIcons.captions_bubble, '/rank'),
           ],

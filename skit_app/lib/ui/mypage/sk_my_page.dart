@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../common/widget_user_info.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
@@ -76,13 +77,13 @@ class _SkMyPageState extends State<SkMyPage> {
           Positioned(
               top: SkCommonDef.mStatusBarH,
               right: 0,
-              child: buildHeaderTools()),
+              child: buildHeaderTools(context)),
         ],
       ),
     );
   }
 
-  Widget buildHeaderTools() {
+  Widget buildHeaderTools(BuildContext context) {
     return Container(
       // width: 100,
       // height: 100,
@@ -92,6 +93,7 @@ class _SkMyPageState extends State<SkMyPage> {
           IconButton(
               onPressed: () {
                 //
+                GoRouter.of(context).push('/setting');
               },
               icon: Icon(
                 CupertinoIcons.gear,

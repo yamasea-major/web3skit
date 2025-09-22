@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
 
@@ -29,35 +30,37 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
-            buildItemFunction('Gems', Icons.add),
-            buildItemFunction('Bill', Icons.add),
-            buildItemFunction('Msg', Icons.add),
-            buildItemFunction('Member', Icons.add),
-            buildItemFunction('Wallet', Icons.add),
-            buildItemFunction('Wallet1', Icons.add),
-            buildItemFunction('Wallet2', Icons.add),
-            buildItemFunction('Wallet3', Icons.add),
-            buildItemFunction('Wallet4', Icons.add),
-            buildItemFunction('Wallet5', Icons.add),
-            buildItemFunction('Wallet6', Icons.add),
-            buildItemFunction('Wallet7', Icons.add),
+            buildItemFunction(context, 'Gems', Icons.add, '/rank'),
+            buildItemFunction(context, 'Bill', Icons.add, '/rank'),
+            buildItemFunction(context, 'Msg', Icons.add, '/rank'),
+            buildItemFunction(context, 'Member', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet1', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet2', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet3', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet4', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet5', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet6', Icons.add, '/rank'),
+            buildItemFunction(context, 'Wallet7', Icons.add, '/rank'),
           ],
         ));
   }
 
-  Widget buildItemFunction(String label, IconData iconData) {
+  Widget buildItemFunction(
+      BuildContext context, String label, IconData iconData, String path) {
     return Padding(
       padding: EdgeInsets.only(left: 8, right: 8),
       child: IconButton(
         onPressed: () {
           //
+          GoRouter.of(context).push(path);
         },
         icon: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(iconData),
             SizedBox(
-              height: b8,
+              height: b4,
             ),
             Text(label)
           ],

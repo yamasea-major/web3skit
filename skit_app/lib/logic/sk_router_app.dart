@@ -1,6 +1,7 @@
 // multi router base class
 
 import 'package:flutter/material.dart';
+import 'package:skit_app/sk_app.dart';
 
 import '../base/router/sk_router_base.dart';
 import 'package:go_router/go_router.dart';
@@ -30,6 +31,12 @@ class SkRouterApp extends SkRouterBase {
         path: '/search',
         builder: (BuildContext context, GoRouterState state) {
           return const SkSearchPage();
+        },
+        redirect: (context, state) {
+          if (!gSkApp.mLogicSys!.mIsLogin) {
+            return '/login';
+          }
+          return null;
         },
       ),
       GoRoute(

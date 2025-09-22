@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:skit_app/ui/sk_ui_def.dart';
 
 class SkLoginPage extends StatefulWidget {
   const SkLoginPage({super.key});
@@ -8,39 +11,51 @@ class SkLoginPage extends StatefulWidget {
 }
 
 class _SkLoginPageState extends State<SkLoginPage> {
-  List<int> top = <int>[];
-  List<int> bottom = <int>[0];
+  //
 
   @override
   Widget build(BuildContext context) {
-    const Key centerKey = ValueKey<String>('bottom-sliver-list');
-    return CustomScrollView(
-      center: centerKey,
-      slivers: <Widget>[
-        SliverList(
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              // color: Colors.blue[200 + top[index] % 4 * 100],
-              // height: 100 + top[index] % 4 * 20.0,
-              child: Text('Item1'),
-            );
-          }, childCount: 40),
+    //
+    return Scaffold(
+      // color: Colors.amber,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Login'),
+        leading: IconButton(
+          icon: const Icon(CupertinoIcons.back),
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
         ),
-        SliverList(
-          key: centerKey,
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              // color: Colors.blue[200 + bottom[index] % 4 * 100],
-              // height: 100 + bottom[index] % 4 * 20.0,
-              child: Text('Item2'),
-            );
-          }, childCount: 40),
-        ),
-      ],
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.search),
+        //     onPressed: () {
+        //       // Handle search button press
+        //     },
+        //   ),
+        //   IconButton(
+        //     icon: const Icon(Icons.more_vert),
+        //     onPressed: () {
+        //       // Handle more options button press
+        //     },
+        //   ),
+        // ],
+        backgroundColor: Colors.white,
+        elevation: 4.0,
+      ),
+      body: Center(
+        // color: Colors.amber,
+        child: IconButton(
+            icon: Icon(
+              CupertinoIcons.back,
+              size: s32,
+            ),
+            onPressed: () {
+              GoRouter.of(context).pop();
+            }),
+      ),
+// leadi
     );
   }
 

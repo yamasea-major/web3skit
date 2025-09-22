@@ -29,158 +29,41 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Gems')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Bill')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Msg')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Member')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Wallet')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Wallet1')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Wallet2')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Wallet3')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Wallet4')
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add),
-                  SizedBox(
-                    height: b8,
-                  ),
-                  Text('Wallet5')
-                ],
-              ),
-            ),
+            buildItemFunction('Gems', Icons.add),
+            buildItemFunction('Bill', Icons.add),
+            buildItemFunction('Msg', Icons.add),
+            buildItemFunction('Member', Icons.add),
+            buildItemFunction('Wallet', Icons.add),
+            buildItemFunction('Wallet1', Icons.add),
+            buildItemFunction('Wallet2', Icons.add),
+            buildItemFunction('Wallet3', Icons.add),
+            buildItemFunction('Wallet4', Icons.add),
+            buildItemFunction('Wallet5', Icons.add),
+            buildItemFunction('Wallet6', Icons.add),
+            buildItemFunction('Wallet7', Icons.add),
           ],
         ));
+  }
+
+  Widget buildItemFunction(String label, IconData iconData) {
+    return Padding(
+      padding: EdgeInsets.only(left: 8, right: 8),
+      child: IconButton(
+        onPressed: () {
+          //
+        },
+        icon: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(iconData),
+            SizedBox(
+              height: b8,
+            ),
+            Text(label)
+          ],
+        ),
+      ),
+    );
   }
 
   //!end class

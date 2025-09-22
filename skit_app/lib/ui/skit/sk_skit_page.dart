@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../common/widget_search.dart';
+import '../common/widget_skit_card.dart';
 import '../sk_ui_def.dart';
 
 class SkSkitPage extends StatefulWidget {
@@ -56,7 +57,7 @@ class _SkSkitPageState extends State<SkSkitPage> {
               return Container(
                 alignment: Alignment.center,
                 color: Colors.teal[100 * (index % 9)],
-                child: Text('grid item $index'),
+                child: WidgetSkitCard(),
               );
             },
             childCount: 20,

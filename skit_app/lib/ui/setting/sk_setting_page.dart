@@ -16,16 +16,46 @@ class _SkSettingPageState extends State<SkSettingPage> {
   @override
   Widget build(BuildContext context) {
     //
-    return Container(
-      color: Colors.amber,
-      child: IconButton(
-          icon: Icon(
-            CupertinoIcons.back,
-            size: s32,
-          ),
+    return Scaffold(
+      // color: Colors.amber,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('SETTING'),
+        leading: IconButton(
+          icon: const Icon(CupertinoIcons.back),
           onPressed: () {
             GoRouter.of(context).pop();
-          }), // leadi
+          },
+        ),
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.search),
+        //     onPressed: () {
+        //       // Handle search button press
+        //     },
+        //   ),
+        //   IconButton(
+        //     icon: const Icon(Icons.more_vert),
+        //     onPressed: () {
+        //       // Handle more options button press
+        //     },
+        //   ),
+        // ],
+        backgroundColor: Colors.white,
+        elevation: 4.0,
+      ),
+      body: Center(
+        // color: Colors.amber,
+        child: IconButton(
+            icon: Icon(
+              CupertinoIcons.back,
+              size: s32,
+            ),
+            onPressed: () {
+              GoRouter.of(context).pop();
+            }),
+      ),
+// leadi
     );
   }
 

@@ -26,9 +26,10 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
       duration: Duration(milliseconds: 300),
       vsync: this,
     );
-
+    //
     curve =
         CurvedAnimation(parent: animationController, curve: Curves.bounceInOut);
+    //
     animation = Tween(
       begin: 1.0,
       end: 0.3,
@@ -83,10 +84,12 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
   }
 
   Widget buildVideoWidget() {
-    return ScaleTransition(
-        scale: animation,
-        alignment: Alignment.center,
-        child: Container(
+    return AnimatedBuilder(
+      // scale: animation,
+      // alignment: Alignment.center,
+      animation: animation,
+      builder: (context, child) {
+        return Container(
             width: double.infinity,
             height: double.infinity,
             color: Colors.amber,
@@ -98,7 +101,9 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
                     fontSize: f16,
                     decoration: TextDecoration.none),
               ),
-            )));
+            ));
+      },
+    );
   }
 
   Widget buildControlWidget() {

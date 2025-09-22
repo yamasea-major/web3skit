@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skit_app/ui/common/widget_function_bar.dart';
 
+import '../common/widget_user_info.dart';
 import 'sk_my_page_header.dart';
 
 class SkMyPage extends StatefulWidget {
@@ -13,55 +15,62 @@ class SkMyPage extends StatefulWidget {
 class _SkMyPageState extends State<SkMyPage> {
   List<int> top = <int>[];
   List<int> bottom = <int>[0];
+  List<String> mTabs = ['历史', '收藏', '点赞', '动态'];
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
+    return DefaultTabController(
+      length: 4,
+      child: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
             pinned: true,
             floating: true,
             snap: false,
-            expandedHeight: 210.0,
+            // collapsedHeight: 80,
+            expandedHeight: 160.0,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('Available seats'),
-              background: Image.network(
-                'https://img.freepik.com/free-photo/fuji-mountain-kawaguchiko-lake-morning-autumn-seasons-fuji-mountain-yamanachi-japan_335224-102.jpg?semt=ais_incoming&w=740&q=80',
-                fit: BoxFit.fitHeight,
+              background: Container(
+                color: Colors.blueGrey,
+                child: WidgetUserInfo(),
               ),
             ),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.add_circle),
-                tooltip: 'Add new entry',
-                onPressed: () {
-                  /* ... */
-                },
-              ),
-            ]),
-        SliverList(
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              // color: Colors.blue[200 + top[index] % 4 * 100],
-              // height: 100 + top[index] % 4 * 20.0,
-              child: Text('Item1'),
-            );
-          }, childCount: 40),
-        ),
-        SliverList(
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              // color: Colors.blue[200 + bottom[index] % 4 * 100],
-              // height: 100 + bottom[index] % 4 * 20.0,
-              child: Text('Item2'),
-            );
-          }, childCount: 40),
-        ),
-      ],
+            bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(60),
+                child: TabBar(
+                    tabs:
+                        mTabs.map((String name) => Tab(text: name)).toList())),
+            // Stack(
+            //   children: [
+            //     Positioned(left: 0, top: 0, child: WidgetUserInfo()),
+            //     // Positioned(left: 0, bottom: 0, child: WidgetFunctionBar()),
+            //   ],
+            // ),
+          ),
+          SliverList(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Container(
+                alignment: Alignment.center,
+                // color: Colors.blue[200 + top[index] % 4 * 100],
+                // height: 100 + top[index] % 4 * 20.0,
+                child: Text('Item1'),
+              );
+            }, childCount: 40),
+          ),
+          SliverList(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Container(
+                alignment: Alignment.center,
+                // color: Colors.blue[200 + bottom[index] % 4 * 100],
+                // height: 100 + bottom[index] % 4 * 20.0,
+                child: Text('Item2'),
+              );
+            }, childCount: 40),
+          ),
+        ],
+      ),
     );
   }
 

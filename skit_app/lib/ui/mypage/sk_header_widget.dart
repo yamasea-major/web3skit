@@ -21,28 +21,18 @@ class _SkMyPageState extends State<SkMyPage> {
       center: centerKey,
       slivers: <Widget>[
         SliverAppBar(
-            pinned: true,
-            floating: true,
-            snap: false,
-            // centerTitle: true,
-            // backgroundColor: Color.fromARGB(255, 255, 0, 0),
-            expandedHeight: 230.0,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text('Available seats'),
-              background: Image.network(
-                'https://img.freepik.com/free-photo/fuji-mountain-kawaguchiko-lake-morning-autumn-seasons-fuji-mountain-yamanachi-japan_335224-102.jpg?semt=ais_incoming&w=740&q=80',
-                fit: BoxFit.fitHeight,
-              ),
+          pinned: true,
+          floating: true,
+          snap: false,
+          expandedHeight: 230.0,
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text('Available seats'),
+            background: Image.network(
+              'https://img.freepik.com/free-photo/fuji-mountain-kawaguchiko-lake-morning-autumn-seasons-fuji-mountain-yamanachi-japan_335224-102.jpg?semt=ais_incoming&w=740&q=80',
+              fit: BoxFit.fitHeight,
             ),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.add_circle),
-                tooltip: 'Add new entry',
-                onPressed: () {
-                  /* ... */
-                },
-              ),
-            ]),
+          ),
+        ),
         SliverList(
           delegate:
               SliverChildBuilderDelegate((BuildContext context, int index) {

@@ -8,23 +8,20 @@ import '../sk_ui_def.dart';
 class WidgetUnlogin extends StatefulWidget {
   const WidgetUnlogin({super.key});
 
+  static final double innerHeight = 80;
+
   @override
   State<WidgetUnlogin> createState() => _WidgetUnloginState();
 }
 
 class _WidgetUnloginState extends State<WidgetUnlogin> {
   //
-  // get mWdigetH {
-  //   return 80.0;
-  // }
-
-  //
   @override
   Widget build(BuildContext context) {
     //
     return Container(
       width: SkCommonDef.mScreenW,
-      height: 80.0,
+      height: WidgetUnlogin.innerHeight,
       color: const Color.fromARGB(244, 255, 7, 185),
       child: Stack(
         children: [

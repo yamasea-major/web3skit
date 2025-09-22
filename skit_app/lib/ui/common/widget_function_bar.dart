@@ -10,6 +10,8 @@ import '../sk_ui_def.dart';
 class WidgetFunctionBar extends StatefulWidget {
   const WidgetFunctionBar({super.key});
 
+  static final double innerHeight = 80;
+
   @override
   State<WidgetFunctionBar> createState() => _WidgetFunctionBarState();
 }
@@ -26,7 +28,7 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
     return Container(
         color: const Color.fromARGB(104, 65, 11, 202),
         width: SkCommonDef.mScreenW,
-        height: 80,
+        height: WidgetFunctionBar.innerHeight,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [

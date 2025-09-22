@@ -21,17 +21,23 @@ class _SkMyPageState extends State<SkMyPage> {
   final double mToolsBarH = 20;
   double mHeadBgH = 0;
   //
-  bool mIsLogin = false;
+  bool mIsLogin = true;
 
   @override
   Widget build(BuildContext context) {
     //
     // 100 info height
     // 80 function height
-    // 20 bottom distance
+    // 16 border with userinfo to functionbar
+    // 40 bottom distance
     //
 
-    mHeadBgH = SkCommonDef.mStatusBarH + mToolsBarH + 100 + 80 + 20;
+    mHeadBgH = SkCommonDef.mStatusBarH +
+        mToolsBarH +
+        WidgetUserInfo.innerHeight +
+        WidgetFunctionBar.innerHeight +
+        16 +
+        40;
     //
     return DefaultTabController(
       length: 4,
@@ -60,7 +66,10 @@ class _SkMyPageState extends State<SkMyPage> {
                               top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
                               child: buildHeadWidget(context)),
                           Positioned(
-                              top: SkCommonDef.mStatusBarH + mToolsBarH + 80,
+                              top: SkCommonDef.mStatusBarH +
+                                  mToolsBarH +
+                                  WidgetUserInfo.innerHeight +
+                                  16,
                               child: WidgetFunctionBar()),
                         ],
                       )),

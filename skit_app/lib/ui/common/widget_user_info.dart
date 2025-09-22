@@ -10,6 +10,8 @@ import '../sk_ui_def.dart';
 class WidgetUserInfo extends StatefulWidget {
   const WidgetUserInfo({super.key});
 
+  static final double innerHeight = 80;
+
   @override
   State<WidgetUserInfo> createState() => _WidgetUserInfoState();
 }
@@ -26,7 +28,7 @@ class _WidgetUserInfoState extends State<WidgetUserInfo> {
     const double topBorder = 0;
     return Container(
       width: SkCommonDef.mScreenW,
-      height: 80,
+      height: WidgetUserInfo.innerHeight,
       color: Colors.amber,
       child: Stack(
         children: [

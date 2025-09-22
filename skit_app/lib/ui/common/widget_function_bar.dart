@@ -32,18 +32,23 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
-            buildItemFunction(context, 'Gems', Icons.add, '/rank'),
-            buildItemFunction(context, 'Bill', Icons.add, '/rank'),
-            buildItemFunction(context, 'Msg', Icons.add, '/rank'),
-            buildItemFunction(context, 'Member', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet1', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet2', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet3', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet4', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet5', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet6', Icons.add, '/rank'),
-            buildItemFunction(context, 'Wallet7', Icons.add, '/rank'),
+            buildItemFunction(
+                context, 'Gems', CupertinoIcons.money_dollar_circle, '/rank'),
+            buildItemFunction(
+                context, 'Bill', CupertinoIcons.doc_text, '/rank'),
+            buildItemFunction(context, 'Msg', CupertinoIcons.envelope, '/rank'),
+            buildItemFunction(
+                context, 'Member', CupertinoIcons.person_2, '/rank'),
+            buildItemFunction(
+                context, 'Wallet', CupertinoIcons.creditcard, '/rank'),
+            buildItemFunction(context, 'Coin', CupertinoIcons.bitcoin, '/rank'),
+            buildItemFunction(context, 'Record', CupertinoIcons.film, '/rank'),
+            buildItemFunction(
+                context, 'Cache', CupertinoIcons.cloud_download, '/rank'),
+            buildItemFunction(
+                context, 'Service', CupertinoIcons.question_circle, '/rank'),
+            buildItemFunction(
+                context, 'Feedback', CupertinoIcons.captions_bubble, '/rank'),
           ],
         ));
   }

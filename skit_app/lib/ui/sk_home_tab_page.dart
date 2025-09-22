@@ -30,7 +30,7 @@ class _SkHomeTabPageState extends State<SkHomeTabPage> {
               icon: Icon(CupertinoIcons.arrowtriangle_right_circle),
               label: ('剧场')),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.bitcoin_circle), label: ('福利')),
+              icon: Icon(CupertinoIcons.gift), label: ('福利')),
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.profile_circled), label: ('我的')),
         ],

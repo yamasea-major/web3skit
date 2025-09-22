@@ -23,7 +23,7 @@ class _WidgetUserInfoState extends State<WidgetUserInfo> {
 
   @override
   Widget build(BuildContext context) {
-    const double topBorder = 14;
+    const double topBorder = 0;
     return Container(
       width: SkCommonDef.mScreenW,
       height: 80,

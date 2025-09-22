@@ -57,7 +57,7 @@ class _SkMyPageState extends State<SkMyPage> {
                               height: mHeadBgH,
                               color: const Color.fromARGB(255, 10, 228, 79)),
                           Positioned(
-                              top: SkCommonDef.mStatusBarH + mToolsBarH,
+                              top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
                               child: buildHeadWidget(context)),
                           Positioned(
                               top: SkCommonDef.mStatusBarH + mToolsBarH + 80,

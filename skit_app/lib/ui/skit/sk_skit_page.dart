@@ -46,11 +46,12 @@ class _SkSkitPageState extends State<SkSkitPage> {
               ),
             )),
         SliverGrid(
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200.0,
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
-            childAspectRatio: 4.0,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            // maxCrossAxisExtent: 200.0,
+            crossAxisCount: 3,
+            mainAxisSpacing: b8,
+            crossAxisSpacing: b4,
+            childAspectRatio: 0.75,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
@@ -60,7 +61,7 @@ class _SkSkitPageState extends State<SkSkitPage> {
                 child: WidgetSkitCard(),
               );
             },
-            childCount: 20,
+            childCount: 18,
           ),
         ),
         SliverFixedExtentList(

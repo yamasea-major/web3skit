@@ -21,7 +21,7 @@ class _WidgetSkitCardState extends State<WidgetSkitCard> {
       child: Image.asset(
         'assets/bgimg/skit_bg.webp',
         width: 200,
-        height: 200,
+        height: 400,
         fit: BoxFit.cover,
       ),
     );

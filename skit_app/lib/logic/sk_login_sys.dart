@@ -14,10 +14,18 @@ class SkLoginSys extends SkSysBase {
   }
 
   bool login() {
+    mIsLogin = true;
     return true;
   }
 
-  bool regist() {
+  //
+  bool loginOut() {
+    mIsLogin = false;
+    return true;
+  }
+
+  //
+  bool netGetCode() {
     return true;
   }
 

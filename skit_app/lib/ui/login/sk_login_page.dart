@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skit_app/sk_app.dart';
 import 'package:skit_app/ui/sk_ui_def.dart';
 
 import '../sk_ui_common_def.dart';
@@ -95,7 +96,7 @@ class _SkLoginPageState extends State<SkLoginPage> {
                         onPressed: () {
                           // Handle button press
                           // GoRouter.of(context).push('/login');
-                          //
+                          gSkApp.mLogicSys?.login();
                         },
                         style: ButtonStyle(
                           shape: WidgetStateProperty.all(RoundedRectangleBorder(

@@ -21,7 +21,9 @@ class _SkMyPageState extends State<SkMyPage> {
   final double mToolsBarH = 20;
   double mHeadBgH = 0;
   //
-  bool mIsLogin = true;
+  bool mIsLogin = false;
+  //
+  bool mShowBanner = false;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +67,9 @@ class _SkMyPageState extends State<SkMyPage> {
                           Positioned(
                               top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
                               child: buildHeadWidget(context)),
+                          Positioned(
+                              top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
+                              child: buildHeaderBanner(context)),
                           Positioned(
                               top: SkCommonDef.mStatusBarH +
                                   mToolsBarH +
@@ -139,6 +144,31 @@ class _SkMyPageState extends State<SkMyPage> {
         ],
       ),
     );
+  }
+
+  Widget buildHeaderBanner(BuildContext context) {
+    if (mShowBanner) {
+      return Container(
+        // width: 100,
+        // height: 100,
+        color: Colors.red,
+        child: Row(
+          children: [
+            IconButton(
+                onPressed: () {
+                  //
+                  GoRouter.of(context).push('/setting');
+                },
+                icon: Icon(
+                  CupertinoIcons.gear,
+                  color: Colors.white,
+                  size: s16,
+                )),
+          ],
+        ),
+      );
+    }
+    return SizedBox();
   }
 
   //!end class

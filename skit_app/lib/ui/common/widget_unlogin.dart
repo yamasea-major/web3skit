@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
 
@@ -37,6 +38,7 @@ class _WidgetUnloginState extends State<WidgetUnlogin> {
             child: TextButton(
               onPressed: () {
                 // Handle button press
+                GoRouter.of(context).push('/login');
               },
               style: ButtonStyle(
                 shape: WidgetStateProperty.all(RoundedRectangleBorder(

@@ -1,3 +1,4 @@
+import '../notifiers/sk_login_notifier.dart';
 import 'sk_notifier.dart';
 import 'sk_sys_base.dart';
 
@@ -7,7 +8,8 @@ class SkNotifierSys extends SkSysBase {
 
   @override
   void init() {
-    //
+    // the code write here temp;
+    registSkNotifier(SkLoginNotifier());
   }
 
   @override
@@ -18,11 +20,11 @@ class SkNotifierSys extends SkSysBase {
 
   bool registSkNotifier(SkNotifier notifier) {
     // mNotifiersPool.
-    bool ret = mNotifiersPool.containsKey(notifier.mNameKey);
+    bool ret = mNotifiersPool.containsKey(notifier.getKey());
     if (ret) {
       return false;
     }
-    mNotifiersPool[notifier.mNameKey] = notifier;
+    mNotifiersPool[notifier.getKey()] = notifier;
     return true;
   }
 

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SkNotifier extends ChangeNotifier {
-  
-  String mNameKey = 'SkNotifier';
+  String mKey = 'SkNotifier';
+
+  String getKey() {
+    return mKey;
+  }
 
   void init() {
     //

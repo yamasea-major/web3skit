@@ -1,6 +1,7 @@
 import 'package:skit_app/logic/sk_login_sys.dart';
 
 import 'base/router/sk_router_mgr.dart';
+import 'frame/sk_notifier_sys.dart';
 
 class SkApp {
   //
@@ -14,11 +15,15 @@ class SkApp {
 
   late SkRouterMgr? mRouterMgr;
   late SkLoginSys? mLogicSys;
+  late SkNotifierSys? mSkNotiferSys;
 
   void init() {
     // init router
     mRouterMgr = SkRouterMgr();
     mRouterMgr?.init();
+    // init mSkNotiferSys
+    mSkNotiferSys = SkNotifierSys();
+    mSkNotiferSys?.init();
     // init logicsys
     mLogicSys = SkLoginSys();
     mLogicSys?.init();
@@ -26,6 +31,9 @@ class SkApp {
 
   void destroy() {
     //
+    mLogicSys?.destroy();
+    mSkNotiferSys?.destroy();
+    mRouterMgr?.destroy();
   }
 
   //!end class

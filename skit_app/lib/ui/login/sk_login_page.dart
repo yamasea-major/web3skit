@@ -134,7 +134,10 @@ class _SkLoginPageState extends State<SkLoginPage> {
                                 size: s32,
                               ),
                               onPressed: () {
-                                // GoRouter.of(context).pop();
+                                bool? ret = gSkApp.mLogicSys?.login();
+                                if (ret == true) {
+                                  GoRouter.of(context).pop();
+                                }
                               }),
                         ],
                       )

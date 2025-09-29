@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skit_app/notifiers/sk_login_notifier.dart';
+import 'package:skit_app/sk_app.dart';
+import '../../frame/sk_notifier.dart';
 import '../common/widget_function_bar.dart';
 import '../common/widget_unlogin.dart';
 import '../common/widget_user_info.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
+import 'package:provider/provider.dart';
 
 class SkMyPage extends StatefulWidget {
   const SkMyPage({super.key});
@@ -33,6 +37,12 @@ class _SkMyPageState extends State<SkMyPage> {
     // 16 border with userinfo to functionbar
     // 40 bottom distance
     //
+    // mIsLogin =  gSkApp.mSkNotiferSys!.getSkNotifier('SkLoginNotifier')
+    SkNotifier? loginNotifier =
+        gSkApp.mSkNotiferSys?.getSkNotifier('SkLoginNotifier');
+    if (loginNotifier != null && loginNotifier is SkLoginNotifier) {
+      mIsLogin = loginNotifier.mIsLogin;
+    }
 
     mHeadBgH = SkCommonDef.mStatusBarH +
         mToolsBarH +
@@ -41,80 +51,86 @@ class _SkMyPageState extends State<SkMyPage> {
         16 +
         40;
     //
-    return DefaultTabController(
-      length: 4,
-      child: Stack(
-        children: [
-          CustomScrollView(
-            slivers: <Widget>[
-              SliverAppBar(
-                pinned: true,
-                floating: true,
-                snap: false,
-                collapsedHeight: SkCommonDef.mStatusBarH + mToolsBarH + s12,
-                expandedHeight: mHeadBgH,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Container(
-                      color: Colors.blueGrey,
-                      width: SkCommonDef.mScreenW,
-                      height: mHeadBgH,
-                      child: Stack(
-                        children: [
-                          Container(
-                              width: SkCommonDef.mScreenW,
-                              height: mHeadBgH,
-                              color: const Color.fromARGB(255, 10, 228, 79)),
-                          Positioned(
-                              top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
-                              child: buildHeadWidget(context)),
-                          Positioned(
-                              top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
-                              child: buildHeaderBanner(context)),
-                          Positioned(
-                              top: SkCommonDef.mStatusBarH +
-                                  mToolsBarH +
-                                  WidgetUserInfo.innerHeight +
-                                  16,
-                              child: WidgetFunctionBar()),
-                        ],
-                      )),
+    // ChangeNotifierProvider()
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: loginNotifier),
+      ],
+      child: DefaultTabController(
+        length: 4,
+        child: Stack(
+          children: [
+            CustomScrollView(
+              slivers: <Widget>[
+                SliverAppBar(
+                  pinned: true,
+                  floating: true,
+                  snap: false,
+                  collapsedHeight: SkCommonDef.mStatusBarH + mToolsBarH + s12,
+                  expandedHeight: mHeadBgH,
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: Container(
+                        color: Colors.blueGrey,
+                        width: SkCommonDef.mScreenW,
+                        height: mHeadBgH,
+                        child: Stack(
+                          children: [
+                            Container(
+                                width: SkCommonDef.mScreenW,
+                                height: mHeadBgH,
+                                color: const Color.fromARGB(255, 10, 228, 79)),
+                            Positioned(
+                                top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
+                                child: buildHeadWidget(context)),
+                            Positioned(
+                                top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
+                                child: buildHeaderBanner(context)),
+                            Positioned(
+                                top: SkCommonDef.mStatusBarH +
+                                    mToolsBarH +
+                                    WidgetUserInfo.innerHeight +
+                                    16,
+                                child: WidgetFunctionBar()),
+                          ],
+                        )),
+                  ),
+                  bottom: PreferredSize(
+                      preferredSize: const Size.fromHeight(60),
+                      child: TabBar(
+                          tabs: mTabs
+                              .map((String name) => Tab(text: name))
+                              .toList())),
                 ),
-                bottom: PreferredSize(
-                    preferredSize: const Size.fromHeight(60),
-                    child: TabBar(
-                        tabs: mTabs
-                            .map((String name) => Tab(text: name))
-                            .toList())),
-              ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                  return Container(
-                    alignment: Alignment.center,
-                    // color: Colors.blue[200 + top[index] % 4 * 100],
-                    // height: 100 + top[index] % 4 * 20.0,
-                    child: Text('Item1'),
-                  );
-                }, childCount: 40),
-              ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                  return Container(
-                    alignment: Alignment.center,
-                    // color: Colors.blue[200 + bottom[index] % 4 * 100],
-                    // height: 100 + bottom[index] % 4 * 20.0,
-                    child: Text('Item2'),
-                  );
-                }, childCount: 40),
-              ),
-            ],
-          ),
-          Positioned(
-              top: SkCommonDef.mStatusBarH,
-              right: 0,
-              child: buildHeaderTools(context)),
-        ],
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                    return Container(
+                      alignment: Alignment.center,
+                      // color: Colors.blue[200 + top[index] % 4 * 100],
+                      // height: 100 + top[index] % 4 * 20.0,
+                      child: Text('Item1'),
+                    );
+                  }, childCount: 40),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                    return Container(
+                      alignment: Alignment.center,
+                      // color: Colors.blue[200 + bottom[index] % 4 * 100],
+                      // height: 100 + bottom[index] % 4 * 20.0,
+                      child: Text('Item2'),
+                    );
+                  }, childCount: 40),
+                ),
+              ],
+            ),
+            Positioned(
+                top: SkCommonDef.mStatusBarH,
+                right: 0,
+                child: buildHeaderTools(context)),
+          ],
+        ),
       ),
     );
   }

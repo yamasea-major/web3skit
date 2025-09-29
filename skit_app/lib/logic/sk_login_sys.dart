@@ -29,7 +29,7 @@ class SkLoginSys extends SkSysBase {
   }
 
   //
-  bool loginOut() {
+  bool logOut() {
     mIsLogin = false;
     //
     SkNotifier? target = gSkApp.mSkNotiferSys?.getSkNotifier('SkLoginNotifier');

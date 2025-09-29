@@ -6,5 +6,12 @@ class SkLoginNotifier extends SkNotifier {
     mKey = 'SkLoginNotifier';
   }
 
+  bool mIsLogin = false;
+
+  void changLogin(bool isLogin) {
+    mIsLogin = isLogin;
+    notifyListeners();
+  }
+
   //!end class
 }

@@ -1,4 +1,8 @@
+import 'package:skit_app/sk_app.dart';
+
+import '../frame/sk_notifier.dart';
 import '../frame/sk_sys_base.dart';
+import '../notifiers/sk_login_notifier.dart';
 
 class SkLoginSys extends SkSysBase {
   bool mIsLogin = false;
@@ -15,12 +19,23 @@ class SkLoginSys extends SkSysBase {
 
   bool login() {
     mIsLogin = true;
+    //
+    SkNotifier? target = gSkApp.mSkNotiferSys?.getSkNotifier('SkLoginNotifier');
+    if (target != null && target is SkLoginNotifier) {
+      target.changLogin(mIsLogin);
+    }
+    //
     return true;
   }
 
   //
   bool loginOut() {
     mIsLogin = false;
+    //
+    SkNotifier? target = gSkApp.mSkNotiferSys?.getSkNotifier('SkLoginNotifier');
+    if (target != null && target is SkLoginNotifier) {
+      target.changLogin(mIsLogin);
+    }
     return true;
   }
 

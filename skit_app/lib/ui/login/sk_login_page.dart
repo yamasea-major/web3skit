@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skit_app/sk_app.dart';
 import 'package:skit_app/ui/sk_ui_def.dart';
@@ -62,14 +63,14 @@ class _SkLoginPageState extends State<SkLoginPage> {
                 child: IconButton(
                     icon: Icon(
                       CupertinoIcons.back,
-                      size: s32,
+                      size: s32.w,
                     ),
                     onPressed: () {
                       GoRouter.of(context).pop();
                     }),
               ),
               Positioned(
-                left: b12,
+                left: b12.w,
                 top: SkCommonDef.mStatusBarH + 140,
                 child: Container(
                   width: SkCommonDef.mScreenW - b12 * 2,
@@ -83,13 +84,13 @@ class _SkLoginPageState extends State<SkLoginPage> {
                       Text('登录',
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: f28,
+                              fontSize: f28.w,
                               fontWeight: FontWeight.bold)),
-                      SizedBox(height: b8),
+                      SizedBox(height: b8.w),
                       Text('发现更多精彩剧集',
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: f28,
+                              fontSize: f28.w,
                               fontWeight: FontWeight.bold)),
                       SizedBox(height: b24),
                       TextButton(
@@ -107,7 +108,7 @@ class _SkLoginPageState extends State<SkLoginPage> {
                           //   width: 0.67,
                           // )),
                           padding: WidgetStatePropertyAll(
-                              EdgeInsets.only(left: 16, right: 16)),
+                              EdgeInsets.only(left: b16.w, right: b16.w)),
                           backgroundColor: WidgetStateProperty.all(
                               const Color.fromARGB(
                                   255, 249, 169, 48)), // 背景色を青に設定
@@ -119,11 +120,11 @@ class _SkLoginPageState extends State<SkLoginPage> {
                           '获取验证码',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: f16,
+                              fontSize: f16.w,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      SizedBox(height: b24),
+                      SizedBox(height: b24.w),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -131,7 +132,7 @@ class _SkLoginPageState extends State<SkLoginPage> {
                           IconButton(
                               icon: Icon(
                                 CupertinoIcons.scissors,
-                                size: s32,
+                                size: s32.w,
                               ),
                               onPressed: () {
                                 bool? ret = gSkApp.mLogicSys?.login();

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../sk_ui_def.dart';
 
@@ -52,8 +53,8 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
             buildMask(),
             // test btn
             Positioned(
-              top: 100,
-              left: 100,
+              top: 100.w,
+              left: 100.w,
               child: TextButton(
                 child: Text("缩小"),
                 onPressed: () {
@@ -62,8 +63,8 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
               ),
             ),
             Positioned(
-              top: 100,
-              left: 200,
+              top: 100.w,
+              left: 200.w,
               child: TextButton(
                 child: Text("返回"),
                 onPressed: () {
@@ -98,7 +99,7 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
                 'background with color',
                 style: TextStyle(
                     color: Colors.green,
-                    fontSize: f16,
+                    fontSize: f16.w,
                     decoration: TextDecoration.none),
               ),
             ));

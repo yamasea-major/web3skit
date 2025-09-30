@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skit_app/notifiers/sk_login_notifier.dart';
 import 'package:skit_app/sk_app.dart';
@@ -46,10 +47,10 @@ class _SkMyPageState extends State<SkMyPage> {
 
     mHeadBgH = SkCommonDef.mStatusBarH +
         mToolsBarH +
-        WidgetUserInfo.innerHeight +
-        WidgetFunctionBar.innerHeight +
-        16 +
-        40;
+        WidgetUserInfo.innerHeight.w +
+        WidgetFunctionBar.innerHeight.w +
+        16.w +
+        40.w;
     //
     // ChangeNotifierProvider()
     return MultiProvider(
@@ -66,7 +67,8 @@ class _SkMyPageState extends State<SkMyPage> {
                   pinned: true,
                   floating: true,
                   snap: false,
-                  collapsedHeight: SkCommonDef.mStatusBarH + mToolsBarH + s12,
+                  collapsedHeight:
+                      SkCommonDef.mStatusBarH + mToolsBarH.w + s12.w,
                   expandedHeight: mHeadBgH,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Container(
@@ -80,22 +82,26 @@ class _SkMyPageState extends State<SkMyPage> {
                                 height: mHeadBgH,
                                 color: const Color.fromARGB(255, 10, 228, 79)),
                             Positioned(
-                                top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
+                                top: SkCommonDef.mStatusBarH +
+                                    mToolsBarH.w +
+                                    16.w,
                                 child: buildHeadWidget(context)),
                             Positioned(
-                                top: SkCommonDef.mStatusBarH + mToolsBarH + 16,
+                                top: SkCommonDef.mStatusBarH +
+                                    mToolsBarH.w +
+                                    16.w,
                                 child: buildHeaderBanner(context)),
                             Positioned(
                                 top: SkCommonDef.mStatusBarH +
-                                    mToolsBarH +
+                                    mToolsBarH.w +
                                     WidgetUserInfo.innerHeight +
-                                    16,
+                                    16.w,
                                 child: WidgetFunctionBar()),
                           ],
                         )),
                   ),
                   bottom: PreferredSize(
-                      preferredSize: const Size.fromHeight(60),
+                      preferredSize: Size.fromHeight(60.w),
                       child: TabBar(
                           tabs: mTabs
                               .map((String name) => Tab(text: name))

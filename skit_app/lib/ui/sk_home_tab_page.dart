@@ -4,10 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:skit_app/ui/home/sk_in_home_page.dart';
 import 'package:skit_app/ui/reward/sk_reward_page.dart';
 import 'package:skit_app/ui/skit/sk_skit_page.dart';
-
 import 'mypage/sk_my_page.dart';
-import 'sk_ui_common_def.dart';
-import 'sk_ui_def.dart';
 
 class SkHomeTabPage extends StatefulWidget {
   const SkHomeTabPage({super.key});
@@ -57,14 +54,36 @@ class _SkHomeTabPageState extends State<SkHomeTabPage> {
           case 2:
             returnValue = CupertinoTabView(
               builder: (BuildContext context) {
-                return CupertinoPageScaffold(
-                  navigationBar: CupertinoNavigationBar(
-                    middle: Text('Page 1 of tab $index'),
-                  ),
-                  child: SkRewardPage(),
-                );
+                return AnnotatedRegion<SystemUiOverlayStyle>(
+                    value: SystemUiOverlayStyle.light,
+                    child: CupertinoPageScaffold(
+                      // navigationBar: CupertinoNavigationBar(
+                      //   middle: Text('Page 1 of tab $index'),
+                      // ),
+                      backgroundColor: Colors.transparent,
+                      child: //SafeArea(child: SkMyPage()),
+                          MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        child: AnnotatedRegion<SystemUiOverlayStyle>(
+                          value: SystemUiOverlayStyle
+                              .light, // 或者使用SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light); 如果你需要全局设置的话。
+                          child: SkRewardPage(),
+                        ),
+                      ),
+                    ));
               },
             );
+            // CupertinoTabView(
+            //   builder: (BuildContext context) {
+            //     return CupertinoPageScaffold(
+            //       navigationBar: CupertinoNavigationBar(
+            //         middle: Text('Page 1 of tab $index'),
+            //       ),
+            //       child: SkRewardPage(),
+            //     );
+            //   },
+            // );
             break;
           case 3:
             returnValue = CupertinoTabView(

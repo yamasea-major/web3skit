@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import '../sk_ui_common_def.dart';
@@ -56,7 +57,7 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
   Widget buildItemFunction(
       BuildContext context, String label, IconData iconData, String path) {
     return Padding(
-      padding: EdgeInsets.only(left: 8, right: 8),
+      padding: EdgeInsets.only(left: 8.w, right: 8.w),
       child: IconButton(
         onPressed: () {
           //
@@ -67,7 +68,7 @@ class _WidgetFunctionBarState extends State<WidgetFunctionBar> {
           children: [
             Icon(iconData),
             SizedBox(
-              height: b4,
+              height: b4.w,
             ),
             Text(label)
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../sk_ui_def.dart';
 
@@ -29,7 +30,7 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
             Text('花轿临门拒嫁，只盼故人归',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: f16,
+                    fontSize: f16.w,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none)),
             IconButton(
@@ -39,12 +40,12 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
                 icon: Icon(
                   CupertinoIcons.right_chevron,
                   color: Colors.white,
-                  size: s16,
+                  size: s16.w,
                 )),
           ],
         ),
         SizedBox(
-          height: b12,
+          height: b12.w,
         ),
         GestureDetector(
           onTap: () {
@@ -55,7 +56,7 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
             // });
           },
           child: Container(
-              width: 320,
+              width: 280.w,
               // color: Colors.red,
               child: Row(
                 children: [
@@ -66,17 +67,17 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: f14,
+                            fontSize: f14.w,
                             fontWeight: FontWeight.w400,
                             decoration: TextDecoration.none)),
                   ),
                   SizedBox(
-                    width: b12,
+                    width: b12.w,
                   ),
                   Text('展开',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: f12,
+                          fontSize: f12.w,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none))
                 ],

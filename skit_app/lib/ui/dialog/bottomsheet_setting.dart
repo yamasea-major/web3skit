@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../sk_ui_def.dart';
 
@@ -30,7 +31,7 @@ Future<int?> showCustomModalBottomSheet(context) async {
         height: MediaQuery.of(context).size.height / 2.0,
         child: Column(children: [
           SizedBox(
-            height: 50,
+            height: 50.w,
             child: Stack(
               textDirection: TextDirection.rtl,
               children: [

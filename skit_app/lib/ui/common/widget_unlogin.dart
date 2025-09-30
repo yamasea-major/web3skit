@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
@@ -27,14 +28,14 @@ class _WidgetUnloginState extends State<WidgetUnlogin> {
       child: Stack(
         children: [
           Positioned(
-            left: b12,
+            left: b12.w,
             top: 0,
             child: Text("Welcome to SKIT",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: f18)),
           ),
           Positioned(
-            left: b12,
-            top: 28,
+            left: b12.w,
+            top: 28.w,
             child: TextButton(
               onPressed: () {
                 // Handle button press
@@ -49,7 +50,7 @@ class _WidgetUnloginState extends State<WidgetUnlogin> {
                 //   width: 0.67,
                 // )),
                 padding: WidgetStatePropertyAll(
-                    EdgeInsets.only(left: 16, right: 16)),
+                    EdgeInsets.only(left: b16.w, right: b16.w)),
                 backgroundColor: WidgetStateProperty.all(
                     const Color.fromARGB(255, 249, 169, 48)), // 背景色を青に設定
                 foregroundColor:

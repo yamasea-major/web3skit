@@ -12,12 +12,13 @@ class SkHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     SkCommonDef.mStatusBarH = MediaQuery.of(context).padding.top;
-     SkCommonDef.mScreenW = MediaQuery.of(context).size.width;
-     SkCommonDef.mScreenH = MediaQuery.of(context).size.height;
+    SkCommonDef.mScreenW = MediaQuery.of(context).size.width;
+    SkCommonDef.mScreenH = MediaQuery.of(context).size.height;
     //
     ScreenUtil.init(
       context,
-      designSize: Size(750, 1334),
+      designSize: Size(375, 812),
+      // designSize: Size(750, 1334),
     );
     //
     return MaterialApp.router(
@@ -26,8 +27,8 @@ class SkHomePage extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         textTheme: TextTheme(
-          displayLarge: const TextStyle(
-            fontSize: f16,
+          displayLarge: TextStyle(
+            fontSize: f16.w,
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.none,
           ),

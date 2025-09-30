@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../sk_ui_def.dart';
 
@@ -20,8 +21,8 @@ class _WidgetSkitCardState extends State<WidgetSkitCard> {
       // height: 42,
       child: Image.asset(
         'assets/bgimg/skit_bg.webp',
-        width: 200,
-        height: 400,
+        width: 200.w,
+        height: 400.w,
         fit: BoxFit.cover,
       ),
     );

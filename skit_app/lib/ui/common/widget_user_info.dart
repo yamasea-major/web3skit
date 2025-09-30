@@ -1,6 +1,7 @@
 import 'package:avatar_plus/avatar_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
@@ -34,22 +35,22 @@ class _WidgetUserInfoState extends State<WidgetUserInfo> {
         children: [
           Positioned(
             left: 0,
-            top: topBorder,
+            top: topBorder.w,
             child: AvatarPlus(
               "jonny",
-              height: 64,
-              width: 64,
+              height: 64.w,
+              width: 64.w,
             ),
           ),
           Positioned(
-              left: 70,
-              top: topBorder,
+              left: 70.w,
+              top: topBorder.w,
               child: Text("XXXname",
                   style:
                       TextStyle(fontWeight: FontWeight.bold, fontSize: f20))),
           Positioned(
-              left: 70,
-              top: topBorder + 40,
+              left: 70.w,
+              top: topBorder.w + 40.w,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,23 +58,23 @@ class _WidgetUserInfoState extends State<WidgetUserInfo> {
                   Text("200",
                       style: TextStyle(
                           fontWeight: FontWeight.w100, fontSize: f12)),
-                  SizedBox(width: b4),
+                  SizedBox(width: b4.w),
                   Text("Follow",
                       style: TextStyle(
                           fontWeight: FontWeight.w500, fontSize: f12)),
-                  SizedBox(width: b8),
+                  SizedBox(width: b8.w),
                   Text("1932",
                       style: TextStyle(
                           fontWeight: FontWeight.w100, fontSize: f12)),
-                  SizedBox(width: b4),
+                  SizedBox(width: b4.w),
                   Text("Fans",
                       style: TextStyle(
                           fontWeight: FontWeight.w500, fontSize: f12)),
-                  SizedBox(width: b8),
+                  SizedBox(width: b8.w),
                   Text("19987",
                       style: TextStyle(
                           fontWeight: FontWeight.w100, fontSize: f12)),
-                  SizedBox(width: b4),
+                  SizedBox(width: b4.w),
                   Text("Right",
                       style: TextStyle(
                           fontWeight: FontWeight.w500, fontSize: f12)),

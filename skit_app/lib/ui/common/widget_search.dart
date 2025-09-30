@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../sk_ui_def.dart';
 
@@ -20,7 +21,7 @@ class _WidgetSearchState extends State<WidgetSearch> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 42,
+      height: 42.w,
       child: SearchBar(
         hintText: 'search tips....',
         shape: WidgetStateProperty.all(

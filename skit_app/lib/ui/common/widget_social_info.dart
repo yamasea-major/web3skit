@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../sk_ui_def.dart';
@@ -41,12 +42,12 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
             icon: Icon(
               CupertinoIcons.star_fill,
               color: mStarColor,
-              size: s32,
+              size: s32.w,
             )),
         Text('13.6M',
             style: TextStyle(
                 color: Colors.white,
-                fontSize: f14,
+                fontSize: f14.w,
                 fontWeight: FontWeight.w500)),
         SizedBox(
           height: b12,
@@ -61,17 +62,17 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
                   timeInSecForIosWeb: 1,
                   backgroundColor: Colors.red,
                   textColor: Colors.white,
-                  fontSize: 16.0);
+                  fontSize: f16.w);
             },
             icon: Icon(CupertinoIcons.chat_bubble_text_fill,
                 size: s32, color: Colors.white)),
         Text('85',
             style: TextStyle(
                 color: Colors.white,
-                fontSize: f14,
+                fontSize: f14.w,
                 fontWeight: FontWeight.w500)),
         SizedBox(
-          height: b12,
+          height: b12.w,
         ),
         IconButton(
             onPressed: () {
@@ -90,7 +91,7 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
         Text('3821',
             style: TextStyle(
                 color: Colors.white,
-                fontSize: f14,
+                fontSize: f14.w,
                 fontWeight: FontWeight.w500)),
       ],
     );

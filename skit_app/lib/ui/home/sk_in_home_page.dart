@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../common/widget_social_info.dart';
@@ -47,7 +48,7 @@ class _SkInHomePageState extends State<SkInHomePage> {
               child: Icon(
                 CupertinoIcons.search,
                 color: Colors.white,
-                size: s24,
+                size: s24.w,
               )),
         ),
       ],
@@ -61,8 +62,8 @@ class _SkInHomePageState extends State<SkInHomePage> {
         child: Stack(
           children: [
             WidgetVideoPlay(),
-            Positioned(right: 10.0, bottom: 140.0, child: WidgetSocialInfo()),
-            Positioned(left: 10.0, bottom: 140.0, child: WidgetVideoInfo()),
+            Positioned(right: 10.w, bottom: 140.w, child: WidgetSocialInfo()),
+            Positioned(left: 10.w, bottom: 140.w, child: WidgetVideoInfo()),
             Positioned(
               left: 0.0,
               bottom: 80.0,
@@ -73,36 +74,36 @@ class _SkInHomePageState extends State<SkInHomePage> {
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 46,
+                  height: 46.w,
                   color: const Color.fromARGB(60, 0, 0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: b12,
+                        width: b12.w,
                       ),
                       Icon(
                         CupertinoIcons.arrowtriangle_right_circle,
                         color: Colors.white,
-                        size: s24,
+                        size: s24.w,
                       ),
                       SizedBox(
-                        width: b4,
+                        width: b4.w,
                       ),
                       Text("VIEW FULL CONTENT",
                           style: TextStyle(
-                              fontSize: f14,
+                              fontSize: f14.w,
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),
                       Expanded(child: SizedBox()),
                       Icon(
                         CupertinoIcons.forward,
                         color: Colors.white,
-                        size: s24,
+                        size: s24.w,
                       ),
                       SizedBox(
-                        width: b12,
+                        width: b12.w,
                       ),
                     ],
                   ),

@@ -37,7 +37,7 @@ enum SkitSpeedType {
 
 class SkSkitShareSpeedItem extends SkSkitShareItem {
   //
-  SkitSpeedType mSkitSpeedType = SkitSpeedType.skitSpeed100;
+  SkitSpeedType mSkitSpeedTypeSelect = SkitSpeedType.skitSpeed100;
   //
   SkSkitShareSpeedItem() {
     //
@@ -58,7 +58,7 @@ enum SkitHDType {
 
 class SkSkitShareHDItem extends SkSkitShareItem {
   //
-  SkitHDType mSkitHDType = SkitHDType.skitHD720;
+  SkitHDType mSkitHDTypeSelect = SkitHDType.skitHD720;
   //
   SkSkitShareHDItem() {
     //
@@ -87,7 +87,7 @@ enum SkitFontType {
 
 class SkSkitShareFontSizeItem extends SkSkitShareItem {
   //
-  SkitFontType mSkitFontType = SkitFontType.skitFontStandard;
+  SkitFontType mSkitFontTypeSelect = SkitFontType.skitFontStandard;
   //
   SkSkitShareFontSizeItem() {
     //
@@ -109,7 +109,16 @@ class SkSkitShareTVItem extends SkSkitShareItem {
 }
 
 //
+enum SkitClockType {
+  skitClockNone,
+  skitClockComplete,
+  skitClock30Min,
+  skitClockFreedom,
+}
+
 class SkSkitShareClockItem extends SkSkitShareItem {
+  //
+  SkitClockType mSkitClockTypeSelect = SkitClockType.skitClockNone;
   //
   SkSkitShareClockItem() {
     //

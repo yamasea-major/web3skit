@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../sk_ui_def.dart';
 
-Future<int?> showCustomModalBottomSheet(context) async {
+Future<int?> bottomSheetSetting(context) async {
   //
   List<String> mSpeedItem = [
     '3.0x',

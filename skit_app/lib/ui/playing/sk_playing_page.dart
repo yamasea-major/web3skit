@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
 import '../dialog/bottomsheet_setting.dart';
+import '../dialog/bottomsheet_speed.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
 
@@ -19,8 +21,6 @@ class SkPlayeringPage extends StatefulWidget {
 }
 
 class _SkSkPlayeringeState extends State<SkPlayeringPage> {
-
-
   final double mBottomH = 88;
 
   var children = <Widget>[];
@@ -76,17 +76,17 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   Widget buildTopTools() {
     return Positioned(
       left: 0,
-      top:  SkCommonDef.mStatusBarH + b12,
+      top: SkCommonDef.mStatusBarH + b12.w,
       child: Container(
           width: MediaQuery.of(context).size.width,
-          height: 46,
+          height: 46.w,
           color: const Color.fromARGB(60, 0, 0, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                width: b12,
+                width: b12.w,
               ),
               GestureDetector(
                 onTap: () {
@@ -98,14 +98,14 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                     Icon(
                       color: Colors.white,
                       CupertinoIcons.back,
-                      size: s24,
+                      size: s24.w,
                     ),
                     SizedBox(
-                      width: b4,
+                      width: b4.w,
                     ),
                     Text("第24集",
                         style: TextStyle(
-                            fontSize: f14,
+                            fontSize: f14.w,
                             color: Colors.white,
                             fontWeight: FontWeight.bold)),
                   ],
@@ -113,12 +113,12 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
               ),
               Expanded(child: SizedBox()),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () async {
                   //
                   print('speed');
                   // GoRouter.of(context).pop();
-                  int? selectedIndex =
-                      await showCustomModalBottomSheet(context);
+                  int? selectedIndex = await bottomSheetSpeed(context);
                   print("自定义底部弹层：选中了第$selectedIndex个选项");
                 },
                 child: Row(
@@ -128,30 +128,45 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                     Icon(
                       CupertinoIcons.escape, //speedometer,
                       color: Colors.white,
-                      size: s24,
+                      size: s20.w,
                     ),
                     SizedBox(
-                      width: b4,
+                      width: b8.w,
                     ),
                     Text("倍速",
                         style: TextStyle(
-                            fontSize: f14,
+                            fontSize: f14.w,
                             color: Colors.white,
                             fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
               SizedBox(
-                width: b12,
+                width: b12.w,
               ),
-              Icon(
-                CupertinoIcons.ellipsis_vertical,
-                color: Colors.white,
-                size: s24,
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () async {
+                  //
+                  print('setting');
+                  // GoRouter.of(context).pop();
+                  int? selectedIndex = await bottomSheetSetting(context);
+                  print("自定义底部弹层：选中了第$selectedIndex个选项");
+                },
+                child: SizedBox(
+                  width: 46.w,
+                  height: 46.w,
+                  // color: Colors.red,
+                  child: Icon(
+                    CupertinoIcons.ellipsis_vertical,
+                    color: Colors.white,
+                    size: s24.w,
+                  ),
+                ),
               ),
-              SizedBox(
-                width: b12,
-              ),
+              // SizedBox(
+              //   width: b12.w,
+              // ),
             ],
           )),
     );
@@ -182,7 +197,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                               color: const Color.fromARGB(255, 57, 57, 57),
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(6))),
-                          height: 46,
+                          height: 46.w,
                           child: Row(
                             children: [
                               SizedBox(width: b12),

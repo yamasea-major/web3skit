@@ -80,7 +80,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
       child: Container(
           width: MediaQuery.of(context).size.width,
           height: 46.w,
-          color: const Color.fromARGB(60, 0, 0, 0),
+          color: const Color.fromARGB(0, 0, 0, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,

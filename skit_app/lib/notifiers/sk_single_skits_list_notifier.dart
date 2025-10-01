@@ -1,17 +1,17 @@
 import '../frame/sk_notifier.dart';
 
-class SkLoginNotifier extends SkNotifier {
+class SkSingleSkitsListNotifier extends SkNotifier {
   //
-  SkLoginNotifier() {
-    mKey = 'SkLoginNotifier';
+  SkSingleSkitsListNotifier() {
+    mKey = 'SkSingleSkitsListNotifier';
   }
 
-  bool mIsLogin = false;
+  // bool mIsLogin = false;
 
-  void changLogin(bool isLogin) {
-    mIsLogin = isLogin;
-    notifyListeners();
-  }
+  // void changLogin(bool isLogin) {
+  //   mIsLogin = isLogin;
+  //   notifyListeners();
+  // }
 
   //!end class
 }

@@ -1,5 +1,7 @@
 import '../frame/sk_notifier.dart';
 
+//home page mult skits list
+
 class SkMultSkitsListNotifier extends SkNotifier {
   //
   SkMultSkitsListNotifier() {

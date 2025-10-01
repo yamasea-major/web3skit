@@ -32,6 +32,7 @@ class _SkRankPageState extends State<SkRankPage> {
             backgroundColor: Color.fromARGB(255, 255, 0, 0),
             expandedHeight: 180.0,
             leading: GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 GoRouter.of(context).pop();
               },

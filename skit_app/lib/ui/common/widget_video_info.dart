@@ -48,6 +48,7 @@ class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
           height: b12.w,
         ),
         GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: () {
             //
             print("expand");

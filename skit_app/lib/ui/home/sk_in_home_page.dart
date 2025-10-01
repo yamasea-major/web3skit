@@ -41,6 +41,7 @@ class _SkInHomePageState extends State<SkInHomePage> {
           right: b24,
           top: SkCommonDef.mStatusBarH + b12,
           child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 //
                 GoRouter.of(context).push('/search');
@@ -68,6 +69,7 @@ class _SkInHomePageState extends State<SkInHomePage> {
               left: 0.0,
               bottom: 80.0,
               child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   //
                   GoRouter.of(context).push('/playing');

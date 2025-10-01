@@ -35,6 +35,7 @@ class _SkSkitPageState extends State<SkSkitPage> {
                 height: s36,
                 padding: EdgeInsets.fromLTRB(b12, 0, b12, 0),
                 child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
                   onTap: () {
                     print("search");
                     GoRouter.of(context).push('/search');

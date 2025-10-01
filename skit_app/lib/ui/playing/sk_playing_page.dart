@@ -89,6 +89,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                 width: b12.w,
               ),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   //
                   GoRouter.of(context).pop();
@@ -188,6 +189,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                 children: [
                   Expanded(
                     child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
                         onTap: () {
                           //
                           print('show all videos');

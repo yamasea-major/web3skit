@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
-import '../dialog/bottomsheet_setting.dart';
+import '../dialog/bottomsheet_share.dart';
 import '../dialog/bottomsheet_speed.dart';
 import '../sk_ui_common_def.dart';
 import '../sk_ui_def.dart';
@@ -151,7 +151,7 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
                   //
                   print('setting');
                   // GoRouter.of(context).pop();
-                  int? selectedIndex = await bottomSheetSetting(context);
+                  int? selectedIndex = await bottomSheetShare(context);
                   print("自定义底部弹层：选中了第$selectedIndex个选项");
                 },
                 child: SizedBox(

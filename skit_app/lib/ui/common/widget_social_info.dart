@@ -43,7 +43,7 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
     }
 
     //
-    return Provider.value(
+    return ChangeNotifierProvider.value(
       value: skitInfoNotifier,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

@@ -1,6 +1,7 @@
 import '../notifiers/sk_login_notifier.dart';
 import '../notifiers/sk_mult_skits_list_notifier.dart';
 import '../notifiers/sk_single_skits_list_notifier.dart';
+import '../notifiers/sk_skit_info_notifier.dart';
 import '../notifiers/sk_skit_setting_notifier.dart';
 import 'sk_notifier.dart';
 import 'sk_sys_base.dart';
@@ -16,6 +17,7 @@ class SkNotifierSys extends SkSysBase {
     registSkNotifier(SkSkitSettingNotifier());
     registSkNotifier(SkMultSkitsListNotifier());
     registSkNotifier(SkSingleSkitsListNotifier());
+    registSkNotifier(SkSkitInfoNotifier());
   }
 
   @override

@@ -258,7 +258,7 @@ Future<int?> bottomSheetShare(context) async {
             topRight: const Radius.circular(20.0),
           ),
         ),
-        height: MediaQuery.of(context).size.height * 0.75,
+        height: MediaQuery.of(context).size.height * 0.65,
         child: MultiProvider(
           providers: [
             ChangeNotifierProvider.value(value: skitSettingNotifier),

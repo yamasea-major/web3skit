@@ -51,15 +51,20 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
         children: [
           IconButton(
               onPressed: () {
-                //
-                setState(() {
-                  mStarFlag = !mStarFlag;
-                  if (mStarFlag) {
-                    mStarColor = Colors.yellow;
-                  } else {
-                    mStarColor = Colors.white;
-                  }
-                });
+                if (skitInfoNotifier != null &&
+                    skitInfoNotifier is SkSkitInfoNotifier) {
+                  skitInfoNotifier.changeStar();
+                  //
+                  setState(() {
+                    mStarFlag = skitInfoNotifier.mIsStar;
+                    mStarNum = skitInfoNotifier.mStarNum.toStringForM();
+                    if (mStarFlag) {
+                      mStarColor = Colors.yellow;
+                    } else {
+                      mStarColor = Colors.white;
+                    }
+                  });
+                }
               },
               icon: Icon(
                 CupertinoIcons.star_fill,
@@ -99,14 +104,20 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
           IconButton(
               onPressed: () {
                 //
-                setState(() {
-                  mHeartFlag = !mHeartFlag;
-                  if (mHeartFlag) {
-                    mHeartColor = Colors.red;
-                  } else {
-                    mHeartColor = Colors.white;
-                  }
-                });
+                if (skitInfoNotifier != null &&
+                    skitInfoNotifier is SkSkitInfoNotifier) {
+                  skitInfoNotifier.changeHeart();
+                  //
+                  setState(() {
+                    mHeartFlag = !mHeartFlag;
+                    mHeartNum = skitInfoNotifier.mHearNum.toStringForM();
+                    if (mHeartFlag) {
+                      mHeartColor = Colors.red;
+                    } else {
+                      mHeartColor = Colors.white;
+                    }
+                  });
+                }
               },
               icon: Icon(CupertinoIcons.heart_fill,
                   size: s32, color: mHeartColor)),

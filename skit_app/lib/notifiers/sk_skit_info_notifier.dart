@@ -25,11 +25,21 @@ class SkSkitInfoNotifier extends SkNotifier {
 
   void changeHeart() {
     mIsHeart = !mIsHeart;
+    if (mIsHeart) {
+      mHearNum++;
+    } else {
+      mHearNum--;
+    }
     notifyListeners();
   }
 
   void changeStar() {
     mIsStar = !mIsStar;
+    if (mIsStar) {
+      mStarNum++;
+    } else {
+      mStarNum--;
+    }
     notifyListeners();
   }
 

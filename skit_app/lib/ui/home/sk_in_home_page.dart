@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../datalayer/sk_data_chunk.dart';
+import '../../frame/sk_notifier.dart';
+import '../../notifiers/sk_mult_skits_list_notifier.dart';
+import '../../sk_app.dart';
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
@@ -24,9 +28,19 @@ class _SkInHomePageState extends State<SkInHomePage> {
   Widget build(BuildContext context) {
     //
     var children = <Widget>[];
-    // 生成 6 个 Tab 页
-    for (int i = 0; i < 6; ++i) {
-      children.add(buildHomePlay());
+    //
+    SkNotifier? mutlSkitNotifier =
+        gSkApp.mSkNotiferSys?.getSkNotifier('SkMultSkitsListNotifier');
+    if (mutlSkitNotifier != null &&
+        mutlSkitNotifier is SkMultSkitsListNotifier) {
+      // mIsLogin = loginNotifier.mIsLogin;
+      for (int i = 0; i < mutlSkitNotifier.dataList.length; ++i) {
+        children.add(buildHomePlay(context, mutlSkitNotifier.dataList[i]));
+      }
+    } else {
+      for (int i = 0; i < 10; ++i) {
+        children.add(buildHomePlay(context, SkDataChunk()));
+      }
     }
 
     return SizedBox(
@@ -57,7 +71,7 @@ class _SkInHomePageState extends State<SkInHomePage> {
     //
   }
 
-  Widget buildHomePlay() {
+  Widget buildHomePlay(BuildContext context, SkDataChunk dataChunk) {
     return Container(
         color: Colors.red,
         child: Stack(

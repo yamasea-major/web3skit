@@ -4,16 +4,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:skit_app/until/sk_extension.dart';
-
-import '../../frame/sk_notifier.dart';
 import '../../notifiers/sk_skit_info_notifier.dart';
-import '../../sk_app.dart';
 import '../sk_ui_def.dart';
 
 // search widget
 
 class WidgetSocialInfo extends StatefulWidget {
-  const WidgetSocialInfo({super.key});
+  // late SkSkitInfoNotifier mInfoNotifier;
+  //
+  WidgetSocialInfo({super.key}) {
+    // mInfoNotifier = notifier;
+  }
 
   @override
   State<WidgetSocialInfo> createState() => _WidgetSocialInfoState();
@@ -29,42 +30,45 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
   String mHeartNum = "";
   String mChatNum = "";
 
+  late SkSkitInfoNotifier notifier;
+
+  // late SkSkitInfoNotifier mInfoNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+    notifier = SkSkitInfoNotifier();
+  }
+
   @override
   Widget build(BuildContext context) {
     //
-    SkNotifier? skitInfoNotifier =
-        gSkApp.mSkNotiferSys?.getSkNotifier('SkSkitInfoNotifier');
-    if (skitInfoNotifier != null && skitInfoNotifier is SkSkitInfoNotifier) {
-      mStarFlag = skitInfoNotifier.mIsStar;
-      mHeartFlag = skitInfoNotifier.mIsHeart;
-      mStarNum = skitInfoNotifier.mStarNum.toStringForM();
-      mChatNum = skitInfoNotifier.mChatNum.toStringForM();
-      mHeartNum = skitInfoNotifier.mHearNum.toStringForM();
-    }
+    mStarFlag = notifier.mIsStar;
+    mHeartFlag = notifier.mIsHeart;
+    mStarNum = notifier.mStarNum.toStringForM();
+    mChatNum = notifier.mChatNum.toStringForM();
+    mHeartNum = notifier.mHearNum.toStringForM();
 
     //
     return ChangeNotifierProvider.value(
-      value: skitInfoNotifier,
+      value: notifier,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
               onPressed: () {
-                if (skitInfoNotifier != null &&
-                    skitInfoNotifier is SkSkitInfoNotifier) {
-                  skitInfoNotifier.changeStar();
-                  //
-                  setState(() {
-                    mStarFlag = skitInfoNotifier.mIsStar;
-                    mStarNum = skitInfoNotifier.mStarNum.toStringForM();
-                    if (mStarFlag) {
-                      mStarColor = Colors.yellow;
-                    } else {
-                      mStarColor = Colors.white;
-                    }
-                  });
-                }
+                notifier.changeStar();
+                //
+                setState(() {
+                  mStarFlag = notifier.mIsStar;
+                  mStarNum = notifier.mStarNum.toStringForM();
+                  if (mStarFlag) {
+                    mStarColor = Colors.yellow;
+                  } else {
+                    mStarColor = Colors.white;
+                  }
+                });
               },
               icon: Icon(
                 CupertinoIcons.star_fill,
@@ -104,20 +108,17 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
           IconButton(
               onPressed: () {
                 //
-                if (skitInfoNotifier != null &&
-                    skitInfoNotifier is SkSkitInfoNotifier) {
-                  skitInfoNotifier.changeHeart();
-                  //
-                  setState(() {
-                    mHeartFlag = !mHeartFlag;
-                    mHeartNum = skitInfoNotifier.mHearNum.toStringForM();
-                    if (mHeartFlag) {
-                      mHeartColor = Colors.red;
-                    } else {
-                      mHeartColor = Colors.white;
-                    }
-                  });
-                }
+                notifier.changeHeart();
+                //
+                setState(() {
+                  mHeartFlag = !mHeartFlag;
+                  mHeartNum = notifier.mHearNum.toStringForM();
+                  if (mHeartFlag) {
+                    mHeartColor = Colors.red;
+                  } else {
+                    mHeartColor = Colors.white;
+                  }
+                });
               },
               icon: Icon(CupertinoIcons.heart_fill,
                   size: s32, color: mHeartColor)),

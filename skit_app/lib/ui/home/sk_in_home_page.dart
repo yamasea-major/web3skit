@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../datalayer/sk_data_chunk.dart';
 import '../../frame/sk_notifier.dart';
 import '../../notifiers/sk_mult_skits_list_notifier.dart';
+import '../../notifiers/sk_skit_info_notifier.dart';
 import '../../sk_app.dart';
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
@@ -23,6 +24,11 @@ class SkInHomePage extends StatefulWidget {
 class _SkInHomePageState extends State<SkInHomePage> {
   List<int> top = <int>[];
   List<int> bottom = <int>[0];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

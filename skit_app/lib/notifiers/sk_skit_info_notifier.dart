@@ -1,9 +1,9 @@
-import '../datalayer/sk_skit_info_chunk.dart';
+import '../datalayer/sk_skit_data_chunk.dart';
 import '../frame/sk_notifier.dart';
 
 class SkSkitInfoNotifier extends SkNotifier {
   //
-  SkSkitInfoChunk? mSkitInfoChunk;
+  SkSkitDataChunk? mSkitInfoChunk;
   //
   int mStarNum = 0;
   int mHearNum = 0;
@@ -13,13 +13,24 @@ class SkSkitInfoNotifier extends SkNotifier {
   //
   SkSkitInfoNotifier() {
     mKey = 'SkSkitInfoNotifier';
-    mStarNum = 12334;
-    mHearNum = 4404;
-    mChatNum = 21;
+    mStarNum = 0;
+    mHearNum = 0;
+    mChatNum = 0;
   }
 
-  void updateSkitInfo(SkSkitInfoChunk? skitinfo) {
-    mSkitInfoChunk = skitinfo;
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  void updateInfo(
+      int starNum, int heartNum, int chatNum, bool isHeart, bool isStar) {
+    mStarNum = starNum;
+    mHearNum = heartNum;
+    mChatNum = chatNum;
+    mIsHeart = isHeart;
+    mIsStar = isStar;
+    //
     notifyListeners();
   }
 

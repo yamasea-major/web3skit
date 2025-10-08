@@ -1,8 +1,13 @@
 import 'sk_data_chunk.dart';
 
+// deprecated
 class SkSkitInfoChunk extends SkDataChunk {
   //
+  String mId = "dfdswevcd234";
+  //
   int mTotalNum = 80;
+  //
+  int mCurNum = 1;
   //
   String mSkitName = "drama01";
   //
@@ -12,7 +17,7 @@ class SkSkitInfoChunk extends SkDataChunk {
   // society info about heart
   int mHeartNum = 453344;
   //
-
+  int mChatNum = 2000;
   //
   SkSkitInfoChunk() {
     //

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../datalayer/sk_skit_data_chunk.dart';
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
@@ -14,7 +15,11 @@ import '../sk_ui_def.dart';
 // playingpage
 
 class SkPlayeringPage extends StatefulWidget {
-  const SkPlayeringPage({super.key});
+  SkPlayeringPage({super.key, SkSkitDataChunk? data}) {
+    mDataChunk = data;
+  }
+
+  late SkSkitDataChunk? mDataChunk;
 
   @override
   State<SkPlayeringPage> createState() => _SkSkPlayeringeState();
@@ -30,9 +35,23 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   @override
   Widget build(BuildContext context) {
     // 生成 6 个 Tab 页
-    for (int i = 0; i < 6; ++i) {
-      children.add(buildPlayInner());
-    }
+    // for (int i = 0; i < 6; ++i) {
+    //   children.add(buildPlayInner());
+    // }
+    // SkNotifier? singleSkitNotifier =
+    //     gSkApp.mSkNotiferSys?.getSkNotifier('SkSingleSkitsListNotifier');
+    // if (singleSkitNotifier != null &&
+    //     singleSkitNotifier is SkSingleSkitsListNotifier) {
+    //   // mIsLogin = loginNotifier.mIsLogin;
+    //   for (int i = 0; i < singleSkitNotifier.dataList.length; ++i) {
+    //     children.add(buildHomePlay(
+    //         context, singleSkitNotifier.dataList[i] as SkSkitDataChunk));
+    //   }
+    // } else {
+    //   for (int i = 0; i < 10; ++i) {
+    //     children.add(buildHomePlay(context, null));
+    //   }
+    // }
     //
     return Scaffold(
         body: ConstrainedBox(
@@ -43,8 +62,8 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
         children: [
           buildPlayBody(),
           buildTopTools(),
-          buildSocialInfo(),
-          buildVideoInfo(),
+          buildSocialInfo(widget.mDataChunk),
+          buildVideoInfo(widget.mDataChunk),
         ],
       ),
       // buildBottom(),
@@ -237,18 +256,22 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
         ));
   }
 
-  Widget buildSocialInfo() {
+  Widget buildSocialInfo(SkSkitDataChunk? data) {
     if (mShowInfo) {
       return Positioned(
-          right: 10.0, bottom: mBottomH + b20, child: WidgetSocialInfo());
+          right: 10.0,
+          bottom: mBottomH + b20,
+          child: WidgetSocialInfo(data: data));
     }
     return SizedBox();
   }
 
-  Widget buildVideoInfo() {
+  Widget buildVideoInfo(SkSkitDataChunk? data) {
     if (mShowInfo) {
       return Positioned(
-          left: 10.0, bottom: mBottomH + b20, child: WidgetVideoInfo());
+          left: 10.0,
+          bottom: mBottomH + b20,
+          child: WidgetVideoInfo(data: data));
     }
     return SizedBox();
   }

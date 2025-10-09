@@ -29,6 +29,10 @@ class SkSkitDataChunk extends SkDataChunk {
   //
   int mChatNum = 2000;
   //
+  bool mIsHeart = false;
+  //
+  bool mIsStar = false;
+  //
   SkSkitDataChunk() {
     //
     mDataType = "SkSkitDataChunk";

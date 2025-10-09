@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:skit_app/until/sk_extension.dart';
+import '../../datalayer/sk_skit_data_chunk.dart';
 import '../../notifiers/sk_skit_info_notifier.dart';
 import '../sk_ui_def.dart';
 
@@ -11,9 +12,10 @@ import '../sk_ui_def.dart';
 
 class WidgetSocialInfo extends StatefulWidget {
   // late SkSkitInfoNotifier mInfoNotifier;
+  late SkSkitDataChunk? mDataChunk;
   //
-  WidgetSocialInfo({super.key}) {
-    // mInfoNotifier = notifier;
+  WidgetSocialInfo({super.key, required SkSkitDataChunk? data}) {
+    mDataChunk = data;
   }
 
   @override
@@ -38,6 +40,7 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
   void initState() {
     super.initState();
     notifier = SkSkitInfoNotifier();
+    notifier.initInfo(widget.mDataChunk!);
   }
 
   @override

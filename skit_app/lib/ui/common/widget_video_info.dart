@@ -2,12 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../datalayer/sk_skit_data_chunk.dart';
+import '../../notifiers/sk_skit_info_notifier.dart';
 import '../sk_ui_def.dart';
 
-// search widget
+//
 
 class WidgetVideoInfo extends StatefulWidget {
-  const WidgetVideoInfo({super.key});
+  late SkSkitDataChunk? mDataChunk;
+  WidgetVideoInfo({super.key, required SkSkitDataChunk? data}) {
+    mDataChunk = data;
+  }
 
   @override
   State<WidgetVideoInfo> createState() => _WidgetVideoInfoState();
@@ -16,6 +21,17 @@ class WidgetVideoInfo extends StatefulWidget {
 class _WidgetVideoInfoState extends State<WidgetVideoInfo> {
   //
   bool mInfoExpand = false;
+
+  late SkSkitInfoNotifier notifier;
+
+  // late SkSkitInfoNotifier mInfoNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+    notifier = SkSkitInfoNotifier();
+    notifier.initInfo(widget.mDataChunk!);
+  }
 
   @override
   Widget build(BuildContext context) {

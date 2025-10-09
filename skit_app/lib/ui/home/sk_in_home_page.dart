@@ -2,11 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../datalayer/sk_data_chunk.dart';
+import '../../datalayer/sk_skit_data_chunk.dart';
 import '../../frame/sk_notifier.dart';
 import '../../notifiers/sk_mult_skits_list_notifier.dart';
-import '../../notifiers/sk_skit_info_notifier.dart';
 import '../../sk_app.dart';
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
@@ -33,6 +31,7 @@ class _SkInHomePageState extends State<SkInHomePage> {
   @override
   Widget build(BuildContext context) {
     //
+    // GlobalKey<TapboxCState> childKey = GlobalKey();
     var children = <Widget>[];
     //
     SkNotifier? mutlSkitNotifier =
@@ -41,11 +40,12 @@ class _SkInHomePageState extends State<SkInHomePage> {
         mutlSkitNotifier is SkMultSkitsListNotifier) {
       // mIsLogin = loginNotifier.mIsLogin;
       for (int i = 0; i < mutlSkitNotifier.dataList.length; ++i) {
-        children.add(buildHomePlay(context, mutlSkitNotifier.dataList[i]));
+        children.add(buildHomePlay(
+            context, mutlSkitNotifier.dataList[i] as SkSkitDataChunk));
       }
     } else {
       for (int i = 0; i < 10; ++i) {
-        children.add(buildHomePlay(context, SkDataChunk()));
+        children.add(buildHomePlay(context, null));
       }
     }
 
@@ -77,14 +77,20 @@ class _SkInHomePageState extends State<SkInHomePage> {
     //
   }
 
-  Widget buildHomePlay(BuildContext context, SkDataChunk dataChunk) {
+  Widget buildHomePlay(BuildContext context, SkSkitDataChunk? dataChunk) {
     return Container(
         color: Colors.red,
         child: Stack(
           children: [
             WidgetVideoPlay(),
-            Positioned(right: 10.w, bottom: 140.w, child: WidgetSocialInfo()),
-            Positioned(left: 10.w, bottom: 140.w, child: WidgetVideoInfo()),
+            Positioned(
+                right: 10.w,
+                bottom: 140.w,
+                child: WidgetSocialInfo(data: dataChunk)),
+            Positioned(
+                left: 10.w,
+                bottom: 140.w,
+                child: WidgetVideoInfo(data: dataChunk)),
             Positioned(
               left: 0.0,
               bottom: 80.0,

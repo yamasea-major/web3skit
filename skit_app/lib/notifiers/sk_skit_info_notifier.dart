@@ -18,18 +18,25 @@ class SkSkitInfoNotifier extends SkNotifier {
     mChatNum = 0;
   }
 
-  @override
-  void dispose() {
-    super.dispose();
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
+
+  void initInfo(SkSkitDataChunk data) {
+    mStarNum = data.mStarNum;
+    mHearNum = data.mHeartNum;
+    mChatNum = data.mChatNum;
+    mIsHeart = data.mIsHeart;
+    mIsStar = data.mIsStar;
   }
 
-  void updateInfo(
-      int starNum, int heartNum, int chatNum, bool isHeart, bool isStar) {
-    mStarNum = starNum;
-    mHearNum = heartNum;
-    mChatNum = chatNum;
-    mIsHeart = isHeart;
-    mIsStar = isStar;
+  void updateInfo(SkSkitDataChunk data) {
+    mStarNum = data.mStarNum;
+    mHearNum = data.mHeartNum;
+    mChatNum = data.mChatNum;
+    mIsHeart = data.mIsHeart;
+    mIsStar = data.mIsStar;
     //
     notifyListeners();
   }

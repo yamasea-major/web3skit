@@ -6,6 +6,7 @@ import 'package:skit_app/sk_app.dart';
 import '../base/router/sk_router_base.dart';
 import 'package:go_router/go_router.dart';
 
+import '../datalayer/sk_skit_data_chunk.dart';
 import '../ui/playing/sk_playing_page.dart';
 import '../ui/rankpage/sk_rank_page.dart';
 import '../ui/search/sk_search_page.dart';
@@ -42,7 +43,11 @@ class SkRouterApp extends SkRouterBase {
       GoRoute(
         path: '/playing',
         builder: (BuildContext context, GoRouterState state) {
-          return const SkPlayeringPage();
+          //
+          SkSkitDataChunk data = SkSkitDataChunk();
+          return SkPlayeringPage(
+            data: data,
+          );
         },
       ),
       GoRoute(

@@ -1,6 +1,6 @@
-import 'sk_data_chunk.dart';
+import 'sk_skit_data_chunk.dart';
 
-class SkAdDataChunk extends SkDataChunk {
+class SkAdDataChunk extends SkSkitDataChunk {
   //
   String mUrl = "";
   //

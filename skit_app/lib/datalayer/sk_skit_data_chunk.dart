@@ -17,7 +17,7 @@ class SkSkitDataChunk extends SkDataChunk {
   //
   int mTotalNum = 80;
   //
-  int mCurNum = 1;
+  int mCurNum = 12;
   //
   String mSkitName = "drama01";
   //

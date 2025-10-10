@@ -40,6 +40,10 @@ class SkSingleSkitsListNotifier extends SkNotifier {
     dataList.add(SkSkitDataChunk());
   }
 
+  bool requestTargetSkit(String skidID) {
+    return true;
+  }
+
   // bool mIsLogin = false;
 
   // void changLogin(bool isLogin) {

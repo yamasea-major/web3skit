@@ -36,6 +36,18 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   bool mShowInfo = true;
 
   @override
+  void initState() {
+    super.initState();
+    // request target skit list;
+    SkNotifier? singleSkitNotifier =
+        gSkApp.mSkNotiferSys?.getSkNotifier('SkSingleSkitsListNotifier');
+    if (singleSkitNotifier != null &&
+        singleSkitNotifier is SkSingleSkitsListNotifier) {
+      singleSkitNotifier.init();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     SkNotifier? singleSkitNotifier =
         gSkApp.mSkNotiferSys?.getSkNotifier('SkSingleSkitsListNotifier');

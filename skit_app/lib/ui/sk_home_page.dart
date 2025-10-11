@@ -23,6 +23,12 @@ class SkHomePage extends StatelessWidget {
     //
     return MaterialApp.router(
       routerConfig: SkRouterMgr.mGoRouter,
+      title: "YourSkit",
+      localizationsDelegates: [],
+      supportedLocales: [
+        Locale('en'),
+        Locale('cn'),
+      ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

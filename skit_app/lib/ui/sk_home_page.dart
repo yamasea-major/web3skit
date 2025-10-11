@@ -27,7 +27,8 @@ class SkHomePage extends StatelessWidget {
       localizationsDelegates: [],
       supportedLocales: [
         Locale('en'),
-        Locale('cn'),
+        Locale('zh'),
+        Locale('ja'),
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

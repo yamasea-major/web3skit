@@ -10,6 +10,7 @@ import '../datalayer/sk_skit_data_chunk.dart';
 import '../ui/playing/sk_playing_page.dart';
 import '../ui/rankpage/sk_rank_page.dart';
 import '../ui/search/sk_search_page.dart';
+import '../ui/sk_error_page.dart';
 import '../ui/sk_home_tab_page.dart';
 
 class SkRouterApp extends SkRouterBase {
@@ -44,10 +45,14 @@ class SkRouterApp extends SkRouterBase {
         path: '/playing',
         builder: (BuildContext context, GoRouterState state) {
           //
-          SkSkitDataChunk data = SkSkitDataChunk();
-          return SkPlayeringPage(
-            data: data,
-          );
+          if (state.extra is SkSkitDataChunk) {
+            //
+            return SkPlayeringPage(
+              data: state.extra as SkSkitDataChunk,
+            );
+          } else {
+            return SkErrorPage(msg: "Param Error");
+          }
         },
       ),
       GoRoute(

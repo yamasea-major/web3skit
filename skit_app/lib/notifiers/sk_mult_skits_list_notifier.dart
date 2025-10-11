@@ -21,6 +21,7 @@ class SkMultSkitsListNotifier extends SkNotifier {
     //
     // local cache some data
     //
+    dataList.add(SkAdDataChunk());
     dataList.add(SkSkitDataChunk());
     dataList.add(SkSkitDataChunk());
     dataList.add(SkSkitDataChunk());

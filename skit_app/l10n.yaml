@@ -1,3 +1,7 @@
 arb-dir: lib/l10n
+# template-arb-files: 
+#   en: app_en.arb
+#   ja: app_ja.arb
+#   zh: app_zh.arb
 template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart

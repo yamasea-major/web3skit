@@ -102,6 +102,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hello World!'**
   String get helloWorld;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'home'**
+  String get home;
+
+  /// No description provided for @drama.
+  ///
+  /// In en, this message translates to:
+  /// **'drama'**
+  String get drama;
+
+  /// No description provided for @reward.
+  ///
+  /// In en, this message translates to:
+  /// **'reward'**
+  String get reward;
+
+  /// No description provided for @my.
+  ///
+  /// In en, this message translates to:
+  /// **'my'**
+  String get my;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

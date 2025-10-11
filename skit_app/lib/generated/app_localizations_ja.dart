@@ -8,4 +8,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helloWorld => 'こんにちは，世界';
+
+  @override
+  String get home => 'ホーム';
+
+  @override
+  String get drama => '寸劇';
+
+  @override
+  String get reward => '福祉';
+
+  @override
+  String get my => '私の';
 }

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:skit_app/ui/home/sk_in_home_page.dart';
 import 'package:skit_app/ui/reward/sk_reward_page.dart';
 import 'package:skit_app/ui/skit/sk_skit_page.dart';
+import 'package:skit_app/until/localized_extension.dart';
 import 'mypage/sk_my_page.dart';
 
 class SkHomeTabPage extends StatefulWidget {
@@ -22,14 +23,15 @@ class _SkHomeTabPageState extends State<SkHomeTabPage> {
       tabBar: CupertinoTabBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.home), label: ('首页')),
+              icon: Icon(CupertinoIcons.home), label: (context.loc!.home)),
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.arrowtriangle_right_circle),
-              label: ('剧场')),
+              label: (context.loc!.drama)),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.gift), label: ('福利')),
+              icon: Icon(CupertinoIcons.gift), label: (context.loc!.reward)),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.profile_circled), label: ('我的')),
+              icon: Icon(CupertinoIcons.profile_circled),
+              label: (context.loc!.my)),
         ],
       ),
       tabBuilder: (BuildContext context, int index) {

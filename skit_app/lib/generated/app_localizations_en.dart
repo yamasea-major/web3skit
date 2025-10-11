@@ -8,4 +8,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helloWorld => 'Hello World!';
+
+  @override
+  String get home => 'home';
+
+  @override
+  String get drama => 'drama';
+
+  @override
+  String get reward => 'reward';
+
+  @override
+  String get my => 'my';
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:skit_app/generated/app_localizations.dart';
@@ -27,9 +28,9 @@ class SkHomePage extends StatelessWidget {
       title: "YourSkit",
       localizationsDelegates: [
         AppLocalizations.delegate, // 使用你的本地化委托
-        // GlobalMaterialLocalizations.delegate,
-        // GlobalWidgetsLocalizations.delegate,
-        // GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
         Locale('en'),

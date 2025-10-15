@@ -34,7 +34,8 @@ class _SkSkitPageState extends State<SkSkitPage> {
     //
     SkNotifier? mutlSkitNotifier =
         gSkApp.mSkNotiferSys?.getSkNotifier('SkMultSkitsListNotifier');
-    if (mutlSkitNotifier != null && mutlSkitNotifier is SkMultSkitsListNotifier) {
+    if (mutlSkitNotifier != null &&
+        mutlSkitNotifier is SkMultSkitsListNotifier) {
       // mIsLogin = loginNotifier.mIsLogin;
     }
 

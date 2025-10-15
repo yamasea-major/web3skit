@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skit_app/ui/setting/sk_setting_page.dart';
-
 import '../base/router/sk_router_base.dart';
 import '../ui/login/sk_login_page.dart';
 import '../ui/login/sk_regist_page.dart';
+import '../ui/sk_error_page.dart';
 
 class SkRouterCommon extends SkRouterBase {
   @override
@@ -28,6 +28,7 @@ class SkRouterCommon extends SkRouterBase {
         path: '/setting',
         builder: (BuildContext context, GoRouterState state) {
           return const SkSettingPage();
+          // return SkErrorPage(msg: "Param Error");
         },
       ),
     ];

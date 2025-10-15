@@ -48,7 +48,7 @@ class _WidgetAdPageState extends State<WidgetAdPage>
         child: Stack(
           children: [
             // video play
-            buildVideoWidget(),
+            buildWebviewWidget(context, 'www.google.com'),
             // video mask
             buildMask(),
             // test btn
@@ -84,7 +84,7 @@ class _WidgetAdPageState extends State<WidgetAdPage>
     //!end class
   }
 
-  Widget buildVideoWidget() {
+  Widget buildWebviewWidget(BuildContext context, String url) {
     return AnimatedBuilder(
       // scale: animation,
       // alignment: Alignment.center,

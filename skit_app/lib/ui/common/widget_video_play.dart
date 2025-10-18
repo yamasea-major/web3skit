@@ -1,3 +1,4 @@
+import 'package:aliplayer_widget/aliplayer_widget_lib.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -95,13 +96,15 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
             height: double.infinity,
             color: Colors.amber,
             child: Center(
-              child: Text(
-                'background with color',
-                style: TextStyle(
-                    color: Colors.green,
-                    fontSize: f16.w,
-                    decoration: TextDecoration.none),
-              ),
+              child:
+              VideoPage(),
+              // Text(
+              //   'background with color',
+              //   style: TextStyle(
+              //       color: Colors.green,
+              //       fontSize: f16.w,
+              //       decoration: TextDecoration.none),
+              // ),
             ));
       },
     );
@@ -124,6 +127,58 @@ class _WidgetVideoPlayState extends State<WidgetVideoPlay>
     }
     return SizedBox();
   }
-
   //!end class
+}
+
+
+class VideoPage extends StatefulWidget {
+  @override
+  _VideoPageState createState() => _VideoPageState();
+}
+
+class _VideoPageState extends State<VideoPage> {
+  late AliPlayerWidgetController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    // 1. 创建控制器
+    _controller = AliPlayerWidgetController(context);
+
+    // 2. 配置数据源
+    final data = AliPlayerWidgetData.fromUrl(
+      videoUrl: "https://gateway.pinata.cloud/ipfs/bafybeieyxopvquawudfpaca2cg67zmgqsurkpsqv6rvglqjrqxj7sriet4",
+      coverUrl: "https://pic.616pic.com/bg_w1180/00/00/44/AWmPutVSXZ.jpg",
+      videoTitle: "Example Video",
+      // 你也可以设置 sceneType 等其他属性
+    );
+    _controller.configure(data);
+  }
+
+  @override
+  void dispose() {
+    // 释放播放器资源
+    _controller.destroy();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("播放页面"),
+      ),
+      body: Center(
+        child: AspectRatio(
+          aspectRatio: 16 / 9,
+          child: AliPlayerWidget(
+            _controller,
+            overlays: [
+              // 你可以在这里放自定义的 UI 覆盖层，比如按钮、进度条等
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

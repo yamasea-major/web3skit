@@ -1,10 +1,14 @@
-import 'sk_data_chunk.dart';
+import 'sk_skit_data_chunk.dart';
 
-class SkAdDataChunk extends SkDataChunk {
+class SkAdDataChunk extends SkSkitDataChunk {
   //
-  String mUrl = "";
+  String mAdUrl = "";
   //
-  double mJumpTime = 15.0;
+  String mAdIcon = "";
+  //
+  String mAdTitle = "";
+  //
+  String mAdDsp = "";
   //
   SkAdDataChunk() {
     //

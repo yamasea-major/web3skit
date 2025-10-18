@@ -2,13 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:provider/provider.dart';
+import 'package:skit_app/until/sk_extension.dart';
+import '../../datalayer/sk_skit_data_chunk.dart';
+import '../../notifiers/sk_skit_info_notifier.dart';
 import '../sk_ui_def.dart';
 
 // search widget
 
 class WidgetSocialInfo extends StatefulWidget {
-  const WidgetSocialInfo({super.key});
+  // late SkSkitInfoNotifier mInfoNotifier;
+  late SkSkitDataChunk? mDataChunk;
+  //
+  WidgetSocialInfo({super.key, required SkSkitDataChunk? data}) {
+    mDataChunk = data;
+  }
 
   @override
   State<WidgetSocialInfo> createState() => _WidgetSocialInfoState();
@@ -20,80 +28,110 @@ class _WidgetSocialInfoState extends State<WidgetSocialInfo> {
   Color mHeartColor = Colors.white;
   bool mStarFlag = false;
   bool mHeartFlag = false;
+  String mStarNum = "";
+  String mHeartNum = "";
+  String mChatNum = "";
+
+  late SkSkitInfoNotifier notifier;
+
+  // late SkSkitInfoNotifier mInfoNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+    notifier = SkSkitInfoNotifier();
+    notifier.initInfo(widget.mDataChunk!);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        IconButton(
-            onPressed: () {
-              //
-              setState(() {
-                mStarFlag = !mStarFlag;
-                if (mStarFlag) {
-                  mStarColor = Colors.yellow;
-                } else {
-                  mStarColor = Colors.white;
-                }
-              });
-            },
-            icon: Icon(
-              CupertinoIcons.star_fill,
-              color: mStarColor,
-              size: s32.w,
-            )),
-        Text('13.6M',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: f14.w,
-                fontWeight: FontWeight.w500)),
-        SizedBox(
-          height: b12,
-        ),
-        IconButton(
-            onPressed: () {
-              //
-              Fluttertoast.showToast(
-                  msg: "This is Center Short Toast",
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.CENTER,
-                  timeInSecForIosWeb: 1,
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white,
-                  fontSize: f16.w);
-            },
-            icon: Icon(CupertinoIcons.chat_bubble_text_fill,
-                size: s32, color: Colors.white)),
-        Text('85',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: f14.w,
-                fontWeight: FontWeight.w500)),
-        SizedBox(
-          height: b12.w,
-        ),
-        IconButton(
-            onPressed: () {
-              //
-              setState(() {
-                mHeartFlag = !mHeartFlag;
-                if (mHeartFlag) {
-                  mHeartColor = Colors.red;
-                } else {
-                  mHeartColor = Colors.white;
-                }
-              });
-            },
-            icon:
-                Icon(CupertinoIcons.heart_fill, size: s32, color: mHeartColor)),
-        Text('3821',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: f14.w,
-                fontWeight: FontWeight.w500)),
-      ],
+    //
+    mStarFlag = notifier.mIsStar;
+    mHeartFlag = notifier.mIsHeart;
+    mStarNum = notifier.mStarNum.toStringForM();
+    mChatNum = notifier.mChatNum.toStringForM();
+    mHeartNum = notifier.mHearNum.toStringForM();
+
+    //
+    return ChangeNotifierProvider.value(
+      value: notifier,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          IconButton(
+              onPressed: () {
+                notifier.changeStar();
+                //
+                setState(() {
+                  mStarFlag = notifier.mIsStar;
+                  mStarNum = notifier.mStarNum.toStringForM();
+                  if (mStarFlag) {
+                    mStarColor = Colors.yellow;
+                  } else {
+                    mStarColor = Colors.white;
+                  }
+                });
+              },
+              icon: Icon(
+                CupertinoIcons.star_fill,
+                color: mStarColor,
+                size: s32.w,
+              )),
+          Text(mStarNum,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: f14.w,
+                  fontWeight: FontWeight.w500)),
+          SizedBox(
+            height: b12,
+          ),
+          IconButton(
+              onPressed: () {
+                //
+                Fluttertoast.showToast(
+                    msg: "This is Center Short Toast",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: f16.w);
+              },
+              icon: Icon(CupertinoIcons.chat_bubble_text_fill,
+                  size: s32, color: Colors.white)),
+          Text(mChatNum,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: f14.w,
+                  fontWeight: FontWeight.w500)),
+          SizedBox(
+            height: b12.w,
+          ),
+          IconButton(
+              onPressed: () {
+                //
+                notifier.changeHeart();
+                //
+                setState(() {
+                  mHeartFlag = !mHeartFlag;
+                  mHeartNum = notifier.mHearNum.toStringForM();
+                  if (mHeartFlag) {
+                    mHeartColor = Colors.red;
+                  } else {
+                    mHeartColor = Colors.white;
+                  }
+                });
+              },
+              icon: Icon(CupertinoIcons.heart_fill,
+                  size: s32, color: mHeartColor)),
+          Text(mHeartNum,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: f14.w,
+                  fontWeight: FontWeight.w500)),
+        ],
+      ),
     );
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:skit_app/generated/app_localizations.dart';
 import '../base/router/sk_router_mgr.dart';
 import 'sk_ui_common_def.dart';
 import 'sk_ui_def.dart';
@@ -23,6 +25,18 @@ class SkHomePage extends StatelessWidget {
     //
     return MaterialApp.router(
       routerConfig: SkRouterMgr.mGoRouter,
+      title: "YourSkit",
+      localizationsDelegates: [
+        AppLocalizations.delegate, // 使用你的本地化委托
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'),
+        Locale('zh'),
+        Locale('ja'),
+      ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

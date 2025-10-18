@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../sk_ui_def.dart';
-
 // skit card
 
 class WidgetSkitCard extends StatefulWidget {

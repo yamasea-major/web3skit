@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../datalayer/sk_skit_data_chunk.dart';
+import '../../frame/sk_notifier.dart';
+import '../../notifiers/sk_single_skits_list_notifier.dart';
+import '../../sk_app.dart';
 import '../common/widget_social_info.dart';
 import '../common/widget_video_info.dart';
 import '../common/widget_video_play.dart';
@@ -14,7 +18,11 @@ import '../sk_ui_def.dart';
 // playingpage
 
 class SkPlayeringPage extends StatefulWidget {
-  const SkPlayeringPage({super.key});
+  SkPlayeringPage({super.key, SkSkitDataChunk? data}) {
+    mDataChunk = data;
+  }
+
+  late SkSkitDataChunk? mDataChunk;
 
   @override
   State<SkPlayeringPage> createState() => _SkSkPlayeringeState();
@@ -23,15 +31,36 @@ class SkPlayeringPage extends StatefulWidget {
 class _SkSkPlayeringeState extends State<SkPlayeringPage> {
   final double mBottomH = 88;
 
-  var children = <Widget>[];
+  var skitWidgetList = <Widget>[];
 
   bool mShowInfo = true;
 
   @override
+  void initState() {
+    super.initState();
+    // request target skit list;
+    SkNotifier? singleSkitNotifier =
+        gSkApp.mSkNotiferSys?.getSkNotifier('SkSingleSkitsListNotifier');
+    if (singleSkitNotifier != null &&
+        singleSkitNotifier is SkSingleSkitsListNotifier) {
+      singleSkitNotifier.init();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // 生成 6 个 Tab 页
-    for (int i = 0; i < 6; ++i) {
-      children.add(buildPlayInner());
+    SkNotifier? singleSkitNotifier =
+        gSkApp.mSkNotiferSys?.getSkNotifier('SkSingleSkitsListNotifier');
+    if (singleSkitNotifier != null &&
+        singleSkitNotifier is SkSingleSkitsListNotifier) {
+      for (int i = 0; i < singleSkitNotifier.dataList.length; ++i) {
+        skitWidgetList.add(buildPlayInner(
+            context, singleSkitNotifier.dataList[i] as SkSkitDataChunk));
+      }
+    } else {
+      for (int i = 0; i < 10; ++i) {
+        skitWidgetList.add(buildPlayInner(context, null));
+      }
     }
     //
     return Scaffold(
@@ -41,17 +70,17 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
       // height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
-          buildPlayBody(),
+          buildPlayBody(context),
           buildTopTools(),
-          buildSocialInfo(),
-          buildVideoInfo(),
+          buildSocialInfo(widget.mDataChunk),
+          buildVideoInfo(widget.mDataChunk),
         ],
       ),
       // buildBottom(),
     ));
   }
 
-  Widget buildPlayBody() {
+  Widget buildPlayBody(BuildContext context) {
     return Positioned.fill(
       top: 0,
       child: Container(
@@ -60,13 +89,13 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
         color: Colors.amber,
         child: PageView(
           scrollDirection: Axis.vertical, // 滑动方向为垂直方向
-          children: children,
+          children: skitWidgetList,
         ),
       ),
     );
   }
 
-  Widget buildPlayInner() {
+  Widget buildPlayInner(BuildContext contex, SkSkitDataChunk? data) {
     return Stack(children: [
       Positioned.fill(bottom: mBottomH, child: WidgetVideoPlay()),
       buildBottom(),
@@ -237,18 +266,22 @@ class _SkSkPlayeringeState extends State<SkPlayeringPage> {
         ));
   }
 
-  Widget buildSocialInfo() {
+  Widget buildSocialInfo(SkSkitDataChunk? data) {
     if (mShowInfo) {
       return Positioned(
-          right: 10.0, bottom: mBottomH + b20, child: WidgetSocialInfo());
+          right: 10.0,
+          bottom: mBottomH + b20,
+          child: WidgetSocialInfo(data: data));
     }
     return SizedBox();
   }
 
-  Widget buildVideoInfo() {
+  Widget buildVideoInfo(SkSkitDataChunk? data) {
     if (mShowInfo) {
       return Positioned(
-          left: 10.0, bottom: mBottomH + b20, child: WidgetVideoInfo());
+          left: 10.0,
+          bottom: mBottomH + b20,
+          child: WidgetVideoInfo(data: data));
     }
     return SizedBox();
   }

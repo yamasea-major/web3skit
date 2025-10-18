@@ -37,7 +37,6 @@ class _SkMyPageState extends State<SkMyPage> {
     // 80 function height
     // 16 border with userinfo to functionbar
     // 40 bottom distance
-    //
     // mIsLogin =  gSkApp.mSkNotiferSys!.getSkNotifier('SkLoginNotifier')
     SkNotifier? loginNotifier =
         gSkApp.mSkNotiferSys?.getSkNotifier('SkLoginNotifier');

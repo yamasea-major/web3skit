@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 import 'sk_data_chunk.dart';
 
 enum SkitShareSetting {
@@ -19,9 +22,13 @@ class SkSkitShareItem extends SkDataChunk {
   //
   String mLabel = "";
   //
+  IconData? mIconData;
+  //
   SkSkitShareItem() {
     //
     mDataType = "SkSkitShareItem";
+    //
+    mIconData = CupertinoIcons.money_dollar_circle;
   }
 }
 
